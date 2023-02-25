@@ -11,22 +11,22 @@ import java.io.Serializable;
 public class Evenement implements Serializable {
     
     // Déclaration des attributs
-    String Id;
-    String nom;
+    int idEvent;
+    String nomEvent;
     String lieux;
     String heureDebut;
     String heureFin;
-    String Description;
+    String description;
     
     
     
 
-    public String getId() {
-        return Id;
+    public int getIdEvent() {
+        return idEvent;
     }
 
-    public String getNom() {
-        return nom;
+    public String getNomEvent() {
+        return nomEvent;
     }
 
     public String getLieux() {
@@ -42,15 +42,15 @@ public class Evenement implements Serializable {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setIdEvent(int idEvent) {
+        this.idEvent = idEvent;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNomEvent(String nomEvent) {
+        this.nomEvent = nomEvent;
     }
 
     public void setLieux(String lieux) {
@@ -65,21 +65,8 @@ public class Evenement implements Serializable {
         this.heureFin = heureFin;
     }
 
-    public void setDescription(String Description) {
-        this.Description = Description;
+    public void setDescription(String description) {
+        this.description = description;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
