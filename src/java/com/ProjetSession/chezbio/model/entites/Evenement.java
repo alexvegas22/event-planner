@@ -2,6 +2,7 @@
 package com.ProjetSession.chezbio.model.entites;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 
 /**
@@ -11,18 +12,20 @@ import java.io.Serializable;
 public class Evenement implements Serializable {
     
     // Déclaration des attributs
-    String Id;
+    int  Id_event;
     String nom;
     String lieux;
+    Date dateDebut;
+    Date dateFin ;
     String heureDebut;
     String heureFin;
-    String Description;
+    String description;
     
     
     
-
-    public String getId() {
-        return Id;
+    
+    public int  getId() {
+        return Id_event;
     }
 
     public String getNom() {
@@ -42,11 +45,11 @@ public class Evenement implements Serializable {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
-    public void setId(String Id) {
-        this.Id = Id;
+    public void setId(int Id) {
+        this.Id_event = Id;
     }
 
     public void setNom(String nom) {
@@ -66,8 +69,9 @@ public class Evenement implements Serializable {
     }
 
     public void setDescription(String Description) {
-        this.Description = Description;
+        this.description = description;
     }
+    
     
     
     
