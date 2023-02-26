@@ -1,21 +1,62 @@
-package com.ProjetSession.chezbio.model.entites;
-
-import java.io.Serializable;
-
-public class Utilisateur implements Serializable {
-
 /**
  *
  * @author Melyse
  */
+
+package com.ProjetSession.chezbio.model.entites;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class Utilisateur implements Serializable {
     
     // Déclaration des attributs
-    int idUser;
-    String nom;
-    String prenom;
-    String password;
-    String email;
-    String photoProfil;
+    private int idUser;
+    private String nom;
+    private String prenom;
+    private String password;
+    private String email;
+    private String photoProfil;
+    List<Evenement> listeEvenements;
+    
+    
+    // Constructeur 
+
+    public Utilisateur() {
+       listeEvenements = new ArrayList();
+    }
+    
+    public Utilisateur(String nom, String prenom, String email, String password) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.password = password;
+        listeEvenements = new ArrayList();
+    }
+
+    public Utilisateur(String nom, String prenom, String password, String email, String photoProfil) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.email = email;
+        this.photoProfil = photoProfil;
+        listeEvenements = new ArrayList();
+    }
+
+    public Utilisateur(int idUser, String nom, String prenom, String password, String email, String photoProfil) {
+        this.idUser = idUser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.email = email;
+        this.photoProfil = photoProfil;
+        listeEvenements = new ArrayList();
+    } 
+    
+    // Getters
 
     public int getId() {
         return idUser;
@@ -41,6 +82,8 @@ public class Utilisateur implements Serializable {
     }
 
     
+    // Setters
+    
     public void setId(int idUser) {
         this.idUser = idUser;
     }
@@ -64,4 +107,23 @@ public class Utilisateur implements Serializable {
     public void setPhotoProfil(String photoProfil) {
         this.photoProfil = photoProfil;
     }
+    
+    
+    public String afficherTitreDesColonnes() {
+        String message = "";
+        message = String.format(" %-10s  %30s %15s %15s %15s %25s", "Id", "Nom", "Prenom", "Email", "Password", "Photo");
+        message+="\n -----------------------------------------------------------------------------------------------------------";
+        return message;
+    }
+  
+    @Override
+       public String toString() {
+       String message = "";
+       message = String.format(" %-10d  %30s %15b %15s %15s %15s %25s ",this.idUser,this.nom ,this.prenom, this.email, this.password, this.photoProfil); 
+       return message;
+    }
+    
+    
+    
+    
 }
