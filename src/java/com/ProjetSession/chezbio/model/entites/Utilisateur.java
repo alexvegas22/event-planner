@@ -17,7 +17,7 @@ public class Utilisateur implements Serializable {
     String email;
     String photoProfil;
 
-    public int getId() {
+    public int getIdUser() {
         return idUser;
     }
 
@@ -41,7 +41,7 @@ public class Utilisateur implements Serializable {
     }
 
     
-    public void setId(int idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
