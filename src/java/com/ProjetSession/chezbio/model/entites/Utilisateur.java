@@ -82,13 +82,12 @@ public class Utilisateur implements Serializable {
     }
 
     
-<<<<<<< HEAD
+
     // Setters
     
     public void setId(int idUser) {
-=======
-    public void setIdUser(int idUser) {
->>>>>>> d115cb170ba62650fab6bc69df59cf2bbf6b331f
+   
+
         this.idUser = idUser;
     }
 
