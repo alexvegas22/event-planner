@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author djeai
+ * @author Aimen
  */
 public class Administrateur extends Utilisateur implements Serializable{
     

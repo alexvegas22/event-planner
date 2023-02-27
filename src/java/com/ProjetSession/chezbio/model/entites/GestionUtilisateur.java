@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author djeai
+ * @author Aimen
  */
 public class GestionUtilisateur {
 
@@ -103,7 +103,7 @@ public class GestionUtilisateur {
 
         Utilisateur utilisateurTrouve = null;
         for (Utilisateur utilisateur : listeUtilisateurs) {
-            if (utilisateur.getId() == id) {
+            if (utilisateur.getIdUser()== id) {
                 utilisateurTrouve = utilisateur;
 
                 break;

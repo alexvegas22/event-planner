@@ -4,10 +4,24 @@
  */
 package com.ProjetSession.chezbio.model.Dao.Evenement;
 
+import com.ProjetSession.chezbio.model.entites.Evenement;
+import java.util.List;
+
 /**
  *
- * @author djeai
+ * @author Aimen
  */
-public class EvenementDao {
+public interface EvenementDao {
+    List<Evenement> fidAll();
+    Evenement findById(int id);
+    Evenement findByName(String nom);
+    Evenement findByHeureDebut(String heureD);
+    Evenement findByHeureFin(String heureF);
+    Evenement findByLieux(String lieux);
+    boolean delete (int id);
+    boolean create(Evenement event);
+    boolean update(Evenement event);
+
+    
     
 }
