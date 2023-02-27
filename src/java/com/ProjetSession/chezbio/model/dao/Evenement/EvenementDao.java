@@ -15,9 +15,9 @@ public interface EvenementDao {
     List<Evenement> fidAll();
     Evenement findById(int id);
     Evenement findByName(String nom);
-    Evenement findByHeureDebut(String heureD);
-    Evenement findByHeureFin(String heureF);
-    Evenement findByLieux(String lieux);
+    List<Evenement> findByHeureDebut(String heureD);
+    List<Evenement> findByHeureFin(String heureF);
+    List<Evenement> findByLieux(String lieux);
     boolean delete (int id);
     boolean create(Evenement event);
     boolean update(Evenement event);

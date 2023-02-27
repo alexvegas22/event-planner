@@ -1,56 +1,294 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.ProjetSession.chezbio.model.dao.Utilisateur;
 
 import com.ProjetSession.chezbio.model.entites.Utilisateur;
+import com.ProjetSession.chezbio.model.singleton.ConnexionBD;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Aimen
  */
 public class UtilisateurImpDao implements UtilisateurDao {
+    
+    // Déclaration 
+    
+    private static final String SQL_SELECT_UTILISATEURS = "select * from utilisateurs";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateurs where id=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateurs where nom=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where EMAIL=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from projetsession.utilisateurs where email = ? and password = ?";
+     
+    private static final String SQL_UPDATE = "update utilisateurs set email =?, password = ? where id = ?";
+   
+    private static final String SQL_DELETE = "delete from utilisateurs where id = ?";
+    
+    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs(email,nom,prenom,password,photo) value(?,?,?,?,?)";
 
     @Override
     public List<Utilisateur> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       List<Utilisateur> listeUtilisateur = null;
+        try {
+
+            // Initilise la requete préparé de la basé sur la connexion
+            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEURS);
+            // on execute la requete  et on recupere les resultats dans la requete
+            ResultSet result = ps.executeQuery();
+
+            //initilisation de la listeUtilisateur
+            listeUtilisateur = new ArrayList();
+            while (result.next()) {
+                Utilisateur utilisateur = new Utilisateur();
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setEmail(result.getString("email"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setPassword(result.getString("password"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
+                listeUtilisateur.add(utilisateur);
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeUtilisateur;
     }
 
     @Override
-    public Utilisateur findById(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Utilisateur findById(int id) {
+        Utilisateur utilisateur = null;
+        try {
+
+            // Initilise la requete préparé de la basé sur la connexion
+            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEUR_PAR_ID);
+            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+            ps.setInt(1, id);
+
+            // on execute la requete  et on recupere les resultats dans la requete
+            ResultSet result = ps.executeQuery();
+
+            //initilisation de la listeUtilisateur
+            while (result.next()) {
+                utilisateur = new Utilisateur();
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setEmail(result.getString("email"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setPassword(result.getString("password"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
+
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return utilisateur;
     }
 
     @Override
     public Utilisateur findByName(String nom) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Utilisateur utilisateur = null;
+        try {
+
+            // Initilise la requete préparé de la basé sur la connexion
+            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEUR_PAR_NOM);
+            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+            ps.setString(1, nom);
+
+            // on execute la requete  et on recupere les resultats dans la requete
+            ResultSet result = ps.executeQuery();
+
+            //initilisation de la listeUtilisateur
+            while (result.next()) {
+                utilisateur = new Utilisateur();
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setEmail(result.getString("email"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setPassword(result.getString("password"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
+
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return utilisateur;
     }
 
     @Override
     public Utilisateur findByEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       Utilisateur utilisateur = null;
+        try {
+
+            // Initilise la requete préparé de la basé sur la connexion
+            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEUR_PAR_EMAIL);
+            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+            ps.setString(1, email);
+
+            // on execute la requete  et on recupere les resultats dans la requete
+            ResultSet result = ps.executeQuery();
+
+            //initilisation de la listeUtilisateur
+            while (result.next()) {
+                utilisateur = new Utilisateur();
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setEmail(result.getString("email"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setPassword(result.getString("password"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
+
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return utilisateur;
     }
 
     @Override
     public Utilisateur existsByEmailAndPassword(String email, String motDePasse) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Utilisateur utilisateur = null;
+        try {
+
+            // Initilise la requete préparé de la basé sur la connexion
+            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE);
+            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+            ps.setString(1, email);
+            ps.setString(2, motDePasse);
+
+            // on execute la requete  et on recupere les resultats dans la requete
+            ResultSet result = ps.executeQuery();
+
+            //initilisation de la listeUtilisateur
+            while (result.next()) {
+                utilisateur = new Utilisateur();
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setEmail(result.getString("email"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setPassword(result.getString("password"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
+
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return utilisateur;
     }
 
     @Override
     public boolean delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean retour = false;
+        int nbLigne = 0;
+
+        PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
+        PreparedStatement ps3 = null;
+        PreparedStatement ps;
+
+        try {
+            
+
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_DELETE);
+
+            // Supprimer les lignes dans la table intermédiaire qui dépendent de la ligne parente
+            ps1.setInt(1, id);
+            ps1.executeUpdate();
+            // Supprimer les lignes enfants dans les deux tables qui dépendent de la ligne parente
+            ps2.setInt(1, id);
+            ps2.executeUpdate();
+            ps3.setInt(1, id);
+            ps3.executeUpdate();
+
+            // Supprimer la ligne parente
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (nbLigne > 0) {
+            retour = true;
+        }
+        ConnexionBD.closeConnection();
+        return retour;
     }
 
     @Override
     public boolean create(Utilisateur utilisateur) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int nbLign = 0;
+        boolean retour = false;
+        PreparedStatement ps;
+        try {
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_INSERT_UTILISATEUR);
+            ps.setString(1, utilisateur.getEmail());
+            ps.setString(2, utilisateur.getNom());
+            ps.setString(3, utilisateur.getPrenom());
+            ps.setString(4, utilisateur.getPassword());
+            ps.setString(5, utilisateur.getPhotoProfil());
+            nbLign = ps.executeUpdate();
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         if(nbLign>0){
+                retour = true;
+            }
+        ConnexionBD.closeConnection();
+        return retour;
     }
 
     @Override
     public boolean update(Utilisateur utilisateur) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       boolean retour = false;
+        int nbLigne = 0;
+        PreparedStatement ps;
+
+        try {
+
+            ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE);
+            ps.setString(1, utilisateur.getEmail());
+
+            ps.setString(2, utilisateur.getPassword());
+
+            ps.setInt(3, utilisateur.getIdUser());
+
+            nbLigne = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+//		System.out.println("nb ligne " + nbLigne);
+        if (nbLigne > 0) {
+            retour = true;
+        }
+        ConnexionBD.closeConnection();
+        return retour;
     }
     
 }

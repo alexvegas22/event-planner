@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface UtilisateurDao {
     List<Utilisateur> findAll();
-    Utilisateur findById(String id);
+    Utilisateur findById(int id);
     Utilisateur findByName(String nom);
     Utilisateur findByEmail(String email);
     Utilisateur existsByEmailAndPassword(String email, String motDePasse);
