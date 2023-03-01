@@ -1,0 +1,46 @@
+.home-section{
+    display : flex;
+    flex-direction: row;
+}
+.left-bar {
+    display : flex;
+    flex-direction: column;
+    width : 100px;
+    background-color: white;
+}
+.left-bar>img{
+    background-color: white;
+    width: 60px;
+    height : 60px;
+    padding : 20px;
+}
+.top-bar{
+    padding-bottom: 10px;
+    font-size: 80px;
+    font-variant:  all-small-caps;
+    height :100px;
+    background-color: #bdbdbd;
+}
+.week-section{
+    width : 100%;
+    background-color : gray;
+}
+.week-section>img{
+    width : 100%;
+}
+.right-section{
+    background-color : gray;
+    color : black;
+    align-items:  stretch;
+    display:flex;
+    flex-direction: column; 
+}
+.nav-button{
+    height: 50px;
+    width:50px;
+}
+.r-s-btm{
+    
+    color : black;
+    margin: 50px;
+}
