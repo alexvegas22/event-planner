@@ -39,6 +39,8 @@ h1{
     font-style: normal;
     text-decoration: none;
     font-size: 40px;
+    width: auto;
+    
 }
 .mid-section{
     display : flex;
@@ -52,6 +54,7 @@ h1{
 .join:hover{
     background-color : #ffffff;
     color:#afab9f;
+    
 }
 
 a{
