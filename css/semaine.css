@@ -1,0 +1,84 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.wrapper-semaine{
+
+    width: fit-content;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper-semaine header{
+    border-bottom: #d6cfb4 1px solid;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+header .icons span:hover{
+
+    background: #f2f2f2;
+}
+header .semaine-actuelle{
+    text-align: center;
+    color : #202020;
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+.planificateur{
+    padding: 20px;
+}
+.planificateur ul{
+
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+}
+.calendar .heures{
+    margin-bottom: 20px;
+}
+.planificateur li{
+    display: inline-block;
+
+    color: #333;
+    width: calc(95% / 7);
+    font-size: 1.07rem;
+}
+.planificateur .semaine li{
+    cursor: default;
+}
+.planificateur .heures li{
+    border: #d6cfb4 1px solid;
+    width: calc(95% / 7);
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+header .icons{
+
+    display: flex;
+}
+header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+.icons span:last-child{
+    margin-right: -10px;
+}
