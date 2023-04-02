@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -37,7 +38,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <input type="file"
                                    name="photo" id="photo" title ="La photo est obligatoire"/> <br>
                         
-                            <a href="home.html" style="margin: auto">Register </a>
+                            <a href="home.jsp" style="margin: auto">Register </a>
             <!--<button type='submit'> Connexion </button>-->
           
         </div>

@@ -17,7 +17,7 @@
         
             <label for='psw'>Password</label>
             <input type='password' placeholder='Enter your password' name='psw' required> <br> 
-            <a href="home.html" >  Connexion </a>
+            <a href="home.jsp" >  Connexion </a>
             <!--<button type='submit'> Connexion </button>-->
           
         </div>

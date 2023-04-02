@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
@@ -15,7 +16,7 @@
 
             <a href="login.jsp">
                 <div class="join" > Connexion</div></a> <br>
-            <a href="inscription.html">
+            <a href="inscription.jsp">
                 <div class="join" > Inscription</div></a> 
                
         </div> 
