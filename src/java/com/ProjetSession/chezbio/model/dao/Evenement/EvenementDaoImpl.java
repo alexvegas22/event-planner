@@ -5,7 +5,7 @@
 package com.ProjetSession.chezbio.model.Dao.Evenement;
 
 import com.ProjetSession.chezbio.model.dao.Utilisateur.UtilisateurImpDao;
-import com.ProjetSession.chezbio.model.entites.Evenement;
+import com.ProjetSession.planner.model.entites.Evenement;
 import com.ProjetSession.chezbio.model.singleton.ConnexionBD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

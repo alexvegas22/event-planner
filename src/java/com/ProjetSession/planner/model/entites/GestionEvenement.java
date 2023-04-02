@@ -1,5 +1,5 @@
 
-package com.ProjetSession.chezbio.model.entites;
+package com.ProjetSession.planner.model.entites;
 
 import java.sql.Time;
 import java.util.ArrayList;

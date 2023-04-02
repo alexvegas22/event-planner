@@ -1,7 +1,7 @@
 
 package com.ProjetSession.chezbio.model.dao.Utilisateur;
 
-import com.ProjetSession.chezbio.model.entites.Utilisateur;
+import com.ProjetSession.planner.model.entites.Utilisateur;
 import com.ProjetSession.chezbio.model.singleton.ConnexionBD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
