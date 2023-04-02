@@ -12,7 +12,7 @@ import java.util.List;
  * @author Aimen
  */
 public interface EvenementDao {
-    List<Evenement> fidAll();
+    List<Evenement> findAll();
     Evenement findById(int id);
     Evenement findByName(String nom);
     List<Evenement> findByHeureDebut(String heureD);

@@ -31,7 +31,7 @@ public class EvenementDaoImpl implements EvenementDao {
     private static final String SQL_INSERT_EVENEMENT = "insert into utilisateurs(,nom,lieux,debut,fin,description) value(?,?,?,?,?)";
 
     @Override
-    public List<Evenement> fidAll() {
+    public List<Evenement> findAll() {
       List<Evenement> listeEvenement = null;
         try {
 
