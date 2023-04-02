@@ -1,5 +1,5 @@
 
-package com.ProjetSession.planner.model.entites;
+package com.model.entites;
 
 import java.sql.Time;
 import java.util.ArrayList;

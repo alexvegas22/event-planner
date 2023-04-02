@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ProjetSession.chezbio.model.Dao.Evenement;
+package com.model.dao;
 
-import com.ProjetSession.chezbio.model.dao.Utilisateur.UtilisateurImpDao;
-import com.ProjetSession.planner.model.entites.Evenement;
-import com.ProjetSession.chezbio.model.singleton.ConnexionBD;
+import com.model.dao.Utilisateur.UtilisateurImpDao;
+import com.model.entites.Evenement;
+import com.model.singleton.ConnexionBD;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

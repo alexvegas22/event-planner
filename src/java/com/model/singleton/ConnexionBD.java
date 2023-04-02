@@ -1,7 +1,7 @@
 
-package com.ProjetSession.chezbio.model.singleton;
+package com.model.singleton;
 
-import com.ProjetSession.chezbio.model.config.ConfigBD;
+import com.model.config.ConfigBD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

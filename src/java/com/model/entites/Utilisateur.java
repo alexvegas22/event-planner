@@ -3,7 +3,7 @@
  * @author Melyse
  */
 
-package com.ProjetSession.planner.model.entites;
+package com.model.entites;
 
 import java.io.Serializable;
 import java.util.ArrayList;
