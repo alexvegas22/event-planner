@@ -13,7 +13,7 @@
         <form action='' method='post'> 
         <div id = 'login-grid' class='login-grid'>
             <label for='email'>Username</label>
-            <input type='text' placeholder='Enter your username' name='uname' required>
+            <input type='text' placeholder='Enter your username' name='email' required>
         
             <label for='psw'>Password</label>
             <input type='password' placeholder='Enter your password' name='psw' required> <br> 
