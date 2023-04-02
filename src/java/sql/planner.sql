@@ -17,88 +17,49 @@ USE `planner` ;
 -- -----------------------------------------------------
 -- Table `planner`.`Administrateur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Administrateur` (
-  `idAdmin` INT NOT NULL AUTO_INCREMENT,
-  `nomAdmin` VARCHAR(20) NOT NULL,
-  `prenomAdmin` VARCHAR(20) NOT NULL,
-  `emailAdmin` VARCHAR(255) NOT NULL,
-  `passwordAdmin` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`idAdmin`),
-  UNIQUE INDEX `idAdmin_UNIQUE` (`idAdmin` ASC))
+CREATE TABLE IF NOT EXISTS `planner`.`administrateur` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(20) NOT NULL,
+  `prenom` VARCHAR(20) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- -----------------------------------------------------
 -- Table `planner`.`Utilisateur`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Utilisateur` (
-  `idUser` INT NOT NULL AUTO_INCREMENT,
-  `nomUser` VARCHAR(20) NOT NULL,
-  `prenomUser` VARCHAR(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `planner`.`utilisateurs` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(20) NOT NULL,
+  `prenom` VARCHAR(20) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   `telephone` VARCHAR(10),
   `password` VARCHAR(20) NOT NULL,
   `bio` LONGTEXT,
-  `photoProfil` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`idUser`),
-  UNIQUE INDEX `idUser_UNIQUE` (`idUser` ASC))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `planner`.`Organisateur`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Organisateur` (
-  `idUser` INT NOT NULL,
-  `idEvent` INT NOT NULL,
-  PRIMARY KEY (`idUser`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `planner`.`Participant`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Participant` (
-  `idUser` INT NOT NULL,
-  `idEvent` INT NOT NULL,
-  PRIMARY KEY (`idUser`))
+  `photo` VARCHAR(20),
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- -----------------------------------------------------
 -- Table `planner`.`Evenement`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Evenement` (
-  `idEvent` INT NOT NULL AUTO_INCREMENT,
-  `nomEvent` VARCHAR(45) NOT NULL,
-  `lieu` VARCHAR(45) NOT NULL,
-  `debut` VARCHAR(45) NOT NULL,
-  `fin` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `planner`.`evenements` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(45) NOT NULL,
+  `lieux` VARCHAR(45) NOT NULL,
+  `debut` DATE NOT NULL,
+  `fin` date NOT NULL,
   `description` LONGTEXT,
   `photoEvent` VARCHAR(20),
-  `categorie` VARCHAR(20) NOT NULL,
-  `visibilite` VARCHAR(20) NOT NULL,
-  `idVisibilite` INT NOT NULL,
-  PRIMARY KEY (`idEvent`),
-  UNIQUE INDEX `idEvent_UNIQUE` (`idEvent` ASC))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-  
--- -----------------------------------------------------
--- Table `planner`.`Public`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Public` (
-  `idVisibilite` INT NOT NULL,
-  PRIMARY KEY (`idVisibilite`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `planner`.`Prive`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`Prive` (
-  `idVisibilite` INT NOT NULL,
-  PRIMARY KEY (`idVisibilite`))
+  `categorie` VARCHAR(50) NOT NULL,
+  `public` BOOLEAN NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -106,13 +67,38 @@ DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 -- Table `planner`.`ToDo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `planner`.`ToDo` (
-  `idTodo` INT NOT NULL AUTO_INCREMENT,
-  `nomTodo` VARCHAR(45) NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nom` VARCHAR(45) NULL,
   `date` VARCHAR(45) NULL,
-  PRIMARY KEY (`idTodo`),
-  UNIQUE INDEX idTodo_UNIQUE (idTodo ASC))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX id_UNIQUE (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
+-- Table `planner`.`Organisateur`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `planner`.`organisateurs` (
+  `id` INT NOT NULL,
+  `id` INT NOT NULL,
+  PRIMARY KEY (`id`, `id`),
+  FOREIGN KEY (`id`) REFERENCES projetsession.utilisateurs (`id`),
+  FOREIGN KEY (`id`) REFERENCES projetsession.evenements (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+-- -----------------------------------------------------
+-- Table `planner`.`Participant`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `planner`.`participants` (
+  `id` INT NOT NULL,
+  `id` INT NOT NULL,
+  PRIMARY KEY (`id`, `id`),
+  FOREIGN KEY (`id`) REFERENCES projetsession.utilisateurs (`id`),
+  FOREIGN KEY (`id`) REFERENCES projetsession.evenements (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
