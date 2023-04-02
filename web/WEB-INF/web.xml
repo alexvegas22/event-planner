@@ -7,9 +7,17 @@
         <servlet-name>controllerConnexion</servlet-name>
         <servlet-class>com.model.controllers.controllerConnexion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controllerInscription</servlet-name>
+        <servlet-class>com.model.controllers.controllerInscription</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerConnexion</servlet-name>
         <url-pattern>/controllerConnexion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerInscription</servlet-name>
+        <url-pattern>/controllerInscription</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
