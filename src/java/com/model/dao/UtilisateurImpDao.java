@@ -19,17 +19,17 @@ public class UtilisateurImpDao implements UtilisateurDao {
     
     // Déclaration 
     
-    private static final String SQL_SELECT_UTILISATEURS = "select * from utilisateurs";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateurs where id=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateurs where nom=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where EMAIL=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateurs where email = ? and password = ?";
+    private static final String SQL_SELECT_UTILISATEURS = "select * from utilisateur";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateur where id=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateur where nom=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateur where EMAIL=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateur where email = ? and password = ?";
      
-    private static final String SQL_UPDATE = "update utilisateurs set email =?, password = ? where id = ?";
+    private static final String SQL_UPDATE = "update utilisateur set email =?, password = ? where id = ?";
    
-    private static final String SQL_DELETE = "delete from utilisateurs where id = ?";
+    private static final String SQL_DELETE = "delete from utilisateur where id = ?";
     
-    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs(email,nom,prenom,password,photo) value(?,?,?,?,?)";
+    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateur (email,nom,prenom,password,photo) value(?,?,?,?,?)";
 
     @Override
     public List<Utilisateur> findAll() {
