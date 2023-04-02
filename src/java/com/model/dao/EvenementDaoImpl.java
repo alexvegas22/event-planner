@@ -4,7 +4,6 @@
  */
 package com.model.dao;
 
-import com.model.dao.UtilisateurImpDao;
 import com.model.entites.Evenement;
 import com.model.singleton.ConnexionBD;
 import java.sql.PreparedStatement;
