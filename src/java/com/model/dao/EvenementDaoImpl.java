@@ -21,14 +21,14 @@ public class EvenementDaoImpl implements EvenementDao {
     private static final String SQL_SELECT_EVENEMENT_PAR_ID = "select * from evenements where id=?";
     private static final String SQL_SELECT_EVENEMENT_PAR_NOM = "select * from evenements where nom=?";
     private static final String SQL_SELECT_EVENEMENTS_PAR_HEURE_DEBUT = "select * from evenements where debut=?";
-    private static final String SQL_SELECT_EVENEMENTS_PAR_HEURE_FIN = "select * from projetsession.evenements where fin = ?";
-    private static final String SQL_SELECT_EVENEMENTS_PAR_LIEUX = "select * from projetsession.evenements where lieux = ?";
+    private static final String SQL_SELECT_EVENEMENTS_PAR_HEURE_FIN = "select * from planner.evenements where fin = ?";
+    private static final String SQL_SELECT_EVENEMENTS_PAR_LIEUX = "select * from planner.evenements where lieux = ?";
      
     private static final String SQL_UPDATE = "update evenements set nom=?, lieux= ?, debut= ?, fin = ?, description=? where id = ?";
    
     private static final String SQL_DELETE = "delete from evenements where id = ?";
     
-    private static final String SQL_INSERT_EVENEMENT = "insert into utilisateurs(,nom,lieux,debut,fin,description) value(?,?,?,?,?)";
+    private static final String SQL_INSERT_EVENEMENT = "insert into  evenements (,nom,lieux,debut,fin,description) value(?,?,?,?,?)";
 
     @Override
     public List<Evenement> findAll() {

@@ -23,7 +23,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
     private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateurs where id=?";
     private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateurs where nom=?";
     private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where EMAIL=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from projetsession.utilisateurs where email = ? and password = ?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateurs where email = ? and password = ?";
      
     private static final String SQL_UPDATE = "update utilisateurs set email =?, password = ? where id = ?";
    
