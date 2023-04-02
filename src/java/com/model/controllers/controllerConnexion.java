@@ -54,7 +54,7 @@ public class controllerConnexion extends HttpServlet {
                     response.addCookie(passwordCookie);
                 }
             }
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
 
 
         }
