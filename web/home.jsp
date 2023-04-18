@@ -19,7 +19,6 @@
 
     </head>
     <body>
-        <h1 class="top-bar">Home</h1>
         <div class="home-section">
             <div class="left-bar">
                 <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
