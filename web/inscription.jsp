@@ -15,16 +15,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
     </head>
     <body>
-        <form action='' method='post'> 
+        <form action='controllerInscription' method='get'> 
         <div id = 'login-grid' class='login-grid'>
             <label for='fname'>First name: </label>
-            <input type='text' placeholder='Enter your fast name' name='fname' required>
+            <input type='text' placeholder='Enter your fast name' name='nom' required>
             
             <label for='lname'>Last name: </label>
-            <input type='text' placeholder='Enter your last name' name='lname' required>
+            <input type='text' placeholder='Enter your last name' name='prenom' required>
             
             <label for='email'>Email:</label>
             <input type='text' placeholder='Enter enter your email' name='email' required>
+            
+            <label for='phone'>Phone number:</label>
+            <input type='text' placeholder='Enter enter your phone number' name='phone' required>
             
             <label for='psw'>Password:</label>
             <input type='password' placeholder='Enter your password' name='psw' required>

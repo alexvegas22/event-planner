@@ -6,10 +6,10 @@
     display : flex;
     flex-direction: column;
     width : 100px;
-    background-color: white;
+    background-color: #afab9f;
 }
 .left-bar>img{
-    background-color: white;
+    background-color: #afab9f;
     width: 60px;
     height : 60px;
     padding : 20px;

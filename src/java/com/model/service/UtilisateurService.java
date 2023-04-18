@@ -41,6 +41,7 @@ public class UtilisateurService {
     
     public Utilisateur verifierEmailMotDePasse(String email, String motDePasse) {
           utilisateur = dao.existsByEmailAndPassword(email, motDePasse);
+          
         return utilisateur;
     }
     

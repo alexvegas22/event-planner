@@ -4,40 +4,39 @@
  */
 package com.model.controllers;
 
-import com.model.entites.Utilisateur;
-import com.model.service.UtilisateurService;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author alexr
+ * @author djeai
  */
-public class controllerInscription extends HttpServlet {
-    private List<Utilisateur> listeUtilisateurs;
-    UtilisateurService utilisateurService = new UtilisateurService();
-    Utilisateur utilisateur = null;
-    
+public class controllerDeconnexion extends HttpServlet {
 
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out  = response.getWriter();
+       	HttpSession session = request.getSession(false);
 
-        String nom = request.getParameter("nom");
-        String email = request.getParameter("email");
-
-        String prenom = request.getParameter("prenom");
-        String telephone = request.getParameter("phone");
-        String password = request.getParameter("psw");
-        String photo = request.getParameter("photo");
-
-         utilisateur = new Utilisateur(nom,  prenom,  password, telephone, email , photo);
-        
-
+	if (session!=null) {
+            String nom = (String) session.getAttribute("nom");
+            session.invalidate();
+		
+            if (nom!=null) {
+                nom="Deconnexion réussie pour " + nom;
+                    } 
+                  
+            request.setAttribute("deconnexion",nom);
+	    request.getRequestDispatcher("index.jsp").include(request, response);
+			
+		}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

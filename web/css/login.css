@@ -22,9 +22,10 @@
     background-color: whitesmoke;
     color: #202020;
 }
-.login-grid>a{
+.boutton{
     text-align: center;
     margin: 20px 30px 10px 30px;
     border-radius: 5px;
-    color: #202020;
+    color: black;
+    text-size : 25px;
 }
