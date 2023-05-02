@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         
     </head>
     <body>
-        <form action='controllerInscription' method='get'> 
+        <form action='controllerInscription' method='post'> 
         <div id = 'login-grid' class='login-grid'>
             <label for='fname'>First name: </label>
             <input type='text' placeholder='Enter your fast name' name='nom' required>
@@ -36,17 +36,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <label for='Confirm_psw'> Confirm Password: </label>
             <input type='password' placeholder='Confirm your password' name='psw' required>
             
+            <label for='bio'> Biographie </label>
+            <input type='text' placeholder='Description' name='bio' required>
+            
             <label  class="col-sm-4 control-label" for="photo">Photo : </label>
                               
                             <input type="file"
                                    name="photo" id="photo" title ="La photo est obligatoire"/> <br>
                         
-                            <a href="home.jsp" style="margin: auto">Register </a>
-            <button type='submit'> Connexion </button>
+                            <a href="home.jsp" style="margin: auto">Register </a> <br>
+                            
+            <button type='submit'> Connexion </button> 
           
-        </div>
+        </div> <br>
         
       </form>
-        
+        <script src="js/formValidation.js"></script>
     </body>
 </html>

@@ -29,7 +29,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
    
     private static final String SQL_DELETE = "delete from utilisateur where id = ?";
     
-    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateur (email,nom,prenom,password,photo) value(?,?,?,?,?)";
+    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateur (nomUser, prenomUser, email, telephone, password, bio,photoProfil) value(?,?,?,?,?,?,?)";
 
     @Override
     public List<Utilisateur> findAll() {
@@ -48,7 +48,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 Utilisateur utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("idUser"));
                 utilisateur.setNom(result.getString("nomUser"));
-                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setPrenom(result.getString("prenomUser"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
@@ -244,11 +244,13 @@ public class UtilisateurImpDao implements UtilisateurDao {
 
     @Override
     public boolean create(Utilisateur utilisateur) {
-        int nbLign = 0;
         boolean retour = false;
+        int nbLigne = 0;
         PreparedStatement ps;
+
         try {
             ps = ConnexionBD.getConnection().prepareStatement(SQL_INSERT_UTILISATEUR);
+            //   Insérer les données dans la table parente, utilisateurs
             ps.setString(1, utilisateur.getNom());
             ps.setString(2, utilisateur.getPrenom());
             ps.setString(3, utilisateur.getEmail());
@@ -256,16 +258,20 @@ public class UtilisateurImpDao implements UtilisateurDao {
             ps.setString(5, utilisateur.getPassword());
             ps.setString(6, utilisateur.getBio());
             ps.setString(7, utilisateur.getPhotoProfil());
-            nbLign = ps.executeUpdate();
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+            nbLigne = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, e);
         }
-         if(nbLign>0){
-                retour = true;
-            }
+
+//		System.out.println("nb ligne " + nbLigne);
+        if (nbLigne > 0) {
+            retour = true;
+        }
         ConnexionBD.closeConnection();
         return retour;
+        
     }
 
     @Override
