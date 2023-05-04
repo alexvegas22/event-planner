@@ -1,8 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!DOCTYPE html>
-<!--
-
--->
 <html>
     <head>
         <title>Home</title>
@@ -19,62 +17,10 @@
 
     </head>
     <body>
+        <%@ include file="header.jspf" %>  
         <div class="home-section">
-            <div class="left-bar">
-                <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
-                <img src="https://img.icons8.com/material-rounded/60/null/settings.png"/>
-                <img src="https://img.icons8.com/material-rounded/60/null/search.png"/>
-                <img src="https://img.icons8.com/material-rounded/60/null/topic.png"/>
-
-            </div>
-            <div class="week-section">
-                <div class="wrapper-semaine">
-                    <header>
-
-                        <div class="icons">
-                            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                            <div class="semaine-actuelle">Semaine du 26 au 1er Avril</div>
-                            <span id="next" class="material-symbols-rounded">chevron_right</span>
-                        </div>
-                    </header>
-                    <div class="planificateur">
-                        <ul class = semaine >
-                            <li>Dimanche</li>
-                            <li>Lundi</li>
-                            <li>Mardi</li>
-                            <li>Mercredi</li>
-                            <li>Jeudi</li>
-                            <li>Vendredi</li>
-                            <li>Samedi</li>
-                        </ul>
-                        <ul class="heures"> </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Portion calendrier*/ -->
-            <div class="right-section" >
-                <div class="wrapper">
-                    <header>
-                        <p class="current-date"></p>
-                        <div class="icons">
-                            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                            <span id="next" class="material-symbols-rounded">chevron_right</span>
-                        </div>
-                    </header>
-                    <div class="calendar">
-                        <ul class="weeks">
-                            <li>Dim</li>
-                            <li>Lun</li>
-                            <li>Mar</li>
-                            <li>Mer</li>
-                            <li>Jeu</li>
-                            <li>Ven</li>
-                            <li>Sam</li>
-                        </ul>
-                        <ul class="days"></ul>
-                    </div>
-                </div>
-            </div>
+           <%@ include file="semaine.jspf" %>   
+           <%@ include file="calendrier.jspf" %> 
         </div>
     </body>
 </html>

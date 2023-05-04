@@ -32,9 +32,10 @@ public class controllerConnexion extends HttpServlet {
         String sauvegarde = request.getParameter("sauvegarde");
         utilisateur = service.verifierEmailMotDePasse(email, password);
 
-
         if (utilisateur != null) {
-
+            if(email == "admin@admin.com"){
+                request.getRequestDispatcher("administration.jsp").forward(request, response);
+            }
             connexion = true;
             HttpSession session = request.getSession(true);
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
@@ -50,6 +51,7 @@ public class controllerConnexion extends HttpServlet {
                     response.addCookie(monCookie);
                     response.addCookie(passwordCookie);
                 }
+                
             }
             request.getRequestDispatcher("home.jsp").forward(request, response);
 
