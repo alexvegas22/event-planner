@@ -28,13 +28,13 @@
         <br> 
           <table style="width:79%">
     <tr>
-      <th>Id</th>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>Email</th>
-      <th>Telephone</th>
-      <th>Bio</th>
-      <th>Photo De Profil</th>
+      <th>Id Abonné</th>
+      <th>Nom Abonné</th>
+      <th>Prenom Abonné</th>
+      <th>Email Abonné</th>
+      <th>Telephone Abonnée</th>
+      <th>Bio Abonné</th>
+      <th>Photo De Profil abonné </th>
     </tr>
     
     <%if(utilisateur!=null) {%>
@@ -65,7 +65,7 @@
        <td> <%=user.getBio()%> </td>
        
     <td>
-    <img alt="etu image" src="images/<%=user.getPhotoProfil()%>" height="42" width="50"/> 
+    <img alt="image de l'abonné(e)" src="images/<%=user.getPhotoProfil()%>" height="42" width="50"/> 
     </td> 
      </tr>
    

@@ -11,7 +11,12 @@
 
     </head>
     <body>
-        <h1 class="logo-section"> Plannificateur d'evenements </h1>
+        <h1 class="logo-section"> Plannificateur d'évènements </h1>
+        
+        <div class="feature-section"> 
+            <div> <h4> Notre site vous propose une panoplie de méthodes vous permettant de mieux vous organiser
+                afin de ne pas rater vos évènements mais surtout afin d'être à l'heure. Pour vous en servir
+                veuilliez vous inscrire où vous connecter si vous avez déjà un compte</h4> </div>
         <div class='mid-section'> 
 
             <a href="login.jsp">
@@ -20,10 +25,11 @@
                 <div class="join" > Inscription</div></a> 
                
         </div> 
-        <div class="feature-section"> 
-            <div> Features </div>
-            <div class="image-section"> images
+        
+            <div class="image-section"> 
+                <img src="images/index.png" alt="Planification d'évènement"  >
             </div>
+            <br>
         </div>
     </body>
 </html>

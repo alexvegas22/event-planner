@@ -44,7 +44,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <input type="file"
                                    name="photo" id="photo" title ="La photo est obligatoire"/> <br>
                         
-                            <a href="home.jsp" style="margin: auto">Register </a> <br>
+                         
                             
             <button type='submit'> Connexion </button> 
           
