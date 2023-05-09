@@ -1,0 +1,7 @@
+<%@ page pageEncoding="UTF-8" %>
+    <div class="top-bar">
+                <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
+                <img src="https://img.icons8.com/material-rounded/60/null/settings.png"/>
+                <img src="https://img.icons8.com/material-rounded/60/null/search.png"/>
+                <img src="https://img.icons8.com/material-rounded/60/null/topic.png"/>
+    </div>
