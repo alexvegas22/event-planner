@@ -17,24 +17,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <form action='controllerInscription' method='post'> 
         <div id = 'login-grid' class='login-grid'>
-            <label for='fname'>First name: </label>
-            <input type='text' placeholder='Enter your fast name' name='nom' required>
+            <label for='fname'>Nom: </label>
+            <input type='text' placeholder='Entrez votre nom' name='nom' required>
             
-            <label for='lname'>Last name: </label>
-            <input type='text' placeholder='Enter your last name' name='prenom' required>
+            <label for='lname'>Prénom: </label>
+            <input type='text' placeholder='Entrez votre prénom' name='prenom' required>
             
             <label for='email'>Email:</label>
-            <input type='text' placeholder='Enter enter your email' name='email' required>
+            <input type='text' placeholder='Entrez votre email' name='email' required>
             
-            <label for='phone'>Phone number:</label>
-            <input type='text' placeholder='Enter enter your phone number' name='phone' required>
+            <label for='phone'>Numéro de Téléphone: </label>
+            <input type='text' placeholder='Entrez votre numéro de téléphone' name='phone' required>
             
-            <label for='psw'>Password:</label>
-            <input type='password' placeholder='Enter your password' name='psw' required>
+            <label for='psw'>Mot de passe:</label>
+            <input type='password' placeholder='Entrez votre mot de passe' name='psw' required>
             
         
-            <label for='Confirm_psw'> Confirm Password: </label>
-            <input type='password' placeholder='Confirm your password' name='psw' required>
+            <label for='Confirm_psw'> Confirmez votre mot de passe: </label>
+            <input type='password' placeholder='Confirmez votre mot de passe' name='psw' required>
             
             <label for='bio'> Biographie </label>
             <input type='text' placeholder='Description' name='bio' required>
@@ -46,7 +46,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         
                          
                             
-            <button type='submit'> Connexion </button> 
+            <button type='submit'> S'INSCRIRE</button> 
           
         </div> <br>
         

@@ -19,6 +19,18 @@
         <servlet-name>controllerUtilisateur</servlet-name>
         <servlet-class>com.model.controllers.controllerUtilisateur</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controllerEvenement</servlet-name>
+        <servlet-class>com.model.controllers.controllerEvenement</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>controllerModificationUtilisateur</servlet-name>
+        <servlet-class>com.model.controllers.controllerModificationUtilisateur</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>controllerModificationEvenement</servlet-name>
+        <servlet-class>com.model.controllers.controllerModificationEvenement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerInscription</servlet-name>
         <url-pattern>/controllerInscription</url-pattern>
@@ -34,6 +46,18 @@
     <servlet-mapping>
         <servlet-name>controllerUtilisateur</servlet-name>
         <url-pattern>/controllerUtilisateur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerEvenement</servlet-name>
+        <url-pattern>/controllerEvenement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerModificationUtilisateur</servlet-name>
+        <url-pattern>/controllerModificationUtilisateur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerModificationEvenement</servlet-name>
+        <url-pattern>/controllerModificationEvenement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

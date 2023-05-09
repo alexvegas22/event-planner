@@ -15,20 +15,27 @@
         
         <div class="feature-section"> 
             <div> <h4> Notre site vous propose une panoplie de méthodes vous permettant de mieux vous organiser
-                afin de ne pas rater vos évènements mais surtout afin d'être à l'heure. Pour vous en servir
-                veuilliez vous inscrire où vous connecter si vous avez déjà un compte</h4> </div>
+                afin de ne pas rater vos évènements mais <br>surtout afin d'être à 
+                l'heure à ces derniers.<br> Pour vous en servir,
+                veuilliez vous inscrire où vous connecter si vous avez déjà un compte.</h4> </div> <br> 
+                
+                <div class="image-section"> 
+                <img src="images/index.png" alt="Planification d'évènement"  >
+                </div> <br>
         <div class='mid-section'> 
 
             <a href="login.jsp">
                 <div class="join" > Connexion</div></a> <br>
             <a href="inscription.jsp">
-                <div class="join" > Inscription</div></a> 
-               
-        </div> 
+                <div class="join" > Inscription</div></a>  <br>
+                
+                <a href="evenement_Form.jsp">
+                <div class="join" > Event</div></a> 
+                
+                
+            
         
-            <div class="image-section"> 
-                <img src="images/index.png" alt="Planification d'évènement"  >
-            </div>
+           
             <br>
         </div>
     </body>

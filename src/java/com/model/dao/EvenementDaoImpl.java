@@ -28,20 +28,19 @@ public class EvenementDaoImpl implements EvenementDao {
    
     private static final String SQL_DELETE = "delete from evenements where id = ?";
     
-    private static final String SQL_INSERT_EVENEMENT = "insert into  evenements (,nom,lieux,debut,fin,description) value(?,?,?,?,?)";
+    private static final String SQL_INSERT_EVENEMENT = "insert into  evenements (nom,lieux,debut,fin,description) value(?,?,?,?,?)";
 
     @Override
     public List<Evenement> findAll() {
       List<Evenement> listeEvenement = null;
         try {
 
-            // Initilise la requete préparé de la basé sur la connexion
-            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENTS);
-            // on execute la requete  et on recupere les resultats dans la requete
+            
             ResultSet result = ps.executeQuery();
 
-            //initilisation de la listeUtilisateur
+          
             listeEvenement = new ArrayList();
             while (result.next()) {
                 Evenement evenement = new Evenement();
@@ -66,16 +65,14 @@ public class EvenementDaoImpl implements EvenementDao {
         Evenement evenement = null;
         try {
 
-            // Initilise la requete préparé de la basé sur la connexion
-            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENT_PAR_ID);
-            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+  
             ps.setInt(1, id);
 
-            // on execute la requete  et on recupere les resultats dans la requete
+     
             ResultSet result = ps.executeQuery();
 
-            //initilisation de la listeUtilisateur
             while (result.next()) {
                 evenement = new Evenement();
                 evenement.setIdEvent(result.getInt("id"));
@@ -100,16 +97,15 @@ public class EvenementDaoImpl implements EvenementDao {
         Evenement evenement = null;
         try {
 
-            // Initilise la requete préparé de la basé sur la connexion
-            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENT_PAR_NOM);
-            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+           
             ps.setString(1, nom);
 
-            // on execute la requete  et on recupere les resultats dans la requete
+           
             ResultSet result = ps.executeQuery();
 
-            //initilisation de la listeUtilisateur
+            
             while (result.next()) {
                 evenement = new Evenement();
                 evenement.setIdEvent(result.getInt("id"));
@@ -135,15 +131,14 @@ public class EvenementDaoImpl implements EvenementDao {
         List<Evenement> listeEvenement = null;
         try {
 
-            // Initilise la requete préparé de la basé sur la connexion
-            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+          
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENTS_PAR_HEURE_DEBUT);
-            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+       
             ps.setString(1, heureD);
-            // on execute la requete  et on recupere les resultats dans la requete
+         
             ResultSet result = ps.executeQuery();
 
-            //initilisation de la listeUtilisateur
+         
             listeEvenement = new ArrayList();
             while (result.next()) {
                 Evenement evenement = new Evenement();
@@ -169,15 +164,13 @@ public class EvenementDaoImpl implements EvenementDao {
         List<Evenement> listeEvenement = null;
         try {
 
-            // Initilise la requete préparé de la basé sur la connexion
-            // la requete SQL passé en argument pour construire l'objet PreparedStatement
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENTS_PAR_HEURE_FIN);
-            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+            
             ps.setString(1, heureF);
-            // on execute la requete  et on recupere les resultats dans la requete
+       
             ResultSet result = ps.executeQuery();
 
-            //initilisation de la listeUtilisateur
+            
             listeEvenement = new ArrayList();
             while (result.next()) {
                 Evenement evenement = new Evenement();
@@ -203,15 +196,14 @@ public class EvenementDaoImpl implements EvenementDao {
         List<Evenement> listeEvenement = null;
         try {
 
-            // Initilise la requete préparé de la basé sur la connexion
-            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENTS_PAR_LIEUX);
-            // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
+            
             ps.setString(1, lieux);
-            // on execute la requete  et on recupere les resultats dans la requete
+         
             ResultSet result = ps.executeQuery();
 
-            //initilisation de la listeUtilisateur
+            
             listeEvenement = new ArrayList();
             while (result.next()) {
                 Evenement evenement = new Evenement();
@@ -247,16 +239,16 @@ public class EvenementDaoImpl implements EvenementDao {
 
             ps = ConnexionBD.getConnection().prepareStatement(SQL_DELETE);
 
-            // Supprimer les lignes dans la table intermédiaire qui dépendent de la ligne parente
+            
             ps1.setInt(1, id);
             ps1.executeUpdate();
-            // Supprimer les lignes enfants dans les deux tables qui dépendent de la ligne parente
+           
             ps2.setInt(1, id);
             ps2.executeUpdate();
             ps3.setInt(1, id);
             ps3.executeUpdate();
 
-            // Supprimer la ligne parent
+           
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -319,11 +311,11 @@ public class EvenementDaoImpl implements EvenementDao {
             nbLigne = ps.executeUpdate();
 
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+      
             Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, e);
         }
 
-//		System.out.println("nb ligne " + nbLigne);
+
         if (nbLigne > 0) {
             retour = true;
         }
