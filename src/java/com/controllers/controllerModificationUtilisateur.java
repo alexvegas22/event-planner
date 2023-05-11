@@ -1,11 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+package com.controllers;
 
-package com.model.controllers;
-
-import com.model.entites.Evenement;
-import com.model.service.EvenementService;
+import com.model.entites.Utilisateur;
+import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Time;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,45 +16,36 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author djemaoune aimen
+ * @author djeai
  */
-public class controllerModificationEvenement extends HttpServlet {
+public class controllerModificationUtilisateur extends HttpServlet {
 
-    private List<Evenement> listeEvenements;
-    EvenementService eventService = new EvenementService();
-    Evenement evenement = null;
+    private List<Utilisateur> listeUtilisateurs;
+    UtilisateurService utilisateurService = new UtilisateurService();
+    Utilisateur utilisateur = null;
     boolean retour = false;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        String email = request.getParameter("email");
         String id = request.getParameter("id");
-      
-        
-        String lieu = request.getParameter("lieu");
-        String debut = request.getParameter("debut");
-        
-        String fin = request.getParameter("fin");
-
+  
+        String password = request.getParameter("password");
         int userId = Integer.parseInt(id);
-        evenement = eventService.chercherEvenementParID(userId);
-        
-        Time d = Time.valueOf(debut);
-        Time f = Time.valueOf(fin);
+        utilisateur = utilisateurService.chercherUtilisateurParID(userId);
 
- 
-        evenement.setLieux(lieu);
-        evenement.setHeureDebut(d);
-        evenement.setHeureFin(f);
+        utilisateur.setEmail(email);
+        utilisateur.setPassword(password);
         
-        retour = eventService.modifierUnEvenement(evenement);
-        
+        retour = utilisateurService.modifierUnUtilisateur(utilisateur);
         if (retour) {
-            String message = "L'évènement  " + evenement.getNomEvent() + " " + " a été modifié avec success ";
-            listeEvenements = eventService.afficherLesEvenement();
+            String message = "l'abonné  " + utilisateur.getNom() + " " + utilisateur.getPrenom() + " a été modifié avec success ";
+            listeUtilisateurs = utilisateurService.afficherLesUtilisateurs();
             request.setAttribute("message", message);
-            request.setAttribute("listeEvenements", listeEvenements);
-            request.getRequestDispatcher("evenement.jsp").forward(request, response);
+            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+            request.getRequestDispatcher("administration.jsp").forward(request, response);
         }
         
     }
@@ -96,4 +89,4 @@ public class controllerModificationEvenement extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    }
+}

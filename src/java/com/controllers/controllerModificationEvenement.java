@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package com.model.controllers;
 
-import com.model.entites.Utilisateur;
-import com.model.service.UtilisateurService;
+package com.controllers;
+
+import com.model.entites.Evenement;
+import com.service.EvenementService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Time;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,36 +14,45 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author djeai
+ * @author djemaoune aimen
  */
-public class controllerModificationUtilisateur extends HttpServlet {
+public class controllerModificationEvenement extends HttpServlet {
 
-    private List<Utilisateur> listeUtilisateurs;
-    UtilisateurService utilisateurService = new UtilisateurService();
-    Utilisateur utilisateur = null;
+    private List<Evenement> listeEvenements;
+    EvenementService eventService = new EvenementService();
+    Evenement evenement = null;
     boolean retour = false;
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String email = request.getParameter("email");
         String id = request.getParameter("id");
-  
-        String password = request.getParameter("password");
-        int userId = Integer.parseInt(id);
-        utilisateur = utilisateurService.chercherUtilisateurParID(userId);
-
-        utilisateur.setEmail(email);
-        utilisateur.setPassword(password);
+      
         
-        retour = utilisateurService.modifierUnUtilisateur(utilisateur);
+        String lieu = request.getParameter("lieu");
+        String debut = request.getParameter("debut");
+        
+        String fin = request.getParameter("fin");
+
+        int userId = Integer.parseInt(id);
+        evenement = eventService.chercherEvenementParID(userId);
+        
+        Time d = Time.valueOf(debut);
+        Time f = Time.valueOf(fin);
+
+ 
+        evenement.setLieux(lieu);
+        evenement.setHeureDebut(d);
+        evenement.setHeureFin(f);
+        
+        retour = eventService.modifierUnEvenement(evenement);
+        
         if (retour) {
-            String message = "l'abonné  " + utilisateur.getNom() + " " + utilisateur.getPrenom() + " a été modifié avec success ";
-            listeUtilisateurs = utilisateurService.afficherLesUtilisateurs();
+            String message = "L'évènement  " + evenement.getNomEvent() + " " + " a été modifié avec success ";
+            listeEvenements = eventService.afficherLesEvenement();
             request.setAttribute("message", message);
-            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-            request.getRequestDispatcher("administration.jsp").forward(request, response);
+            request.setAttribute("listeEvenements", listeEvenements);
+            request.getRequestDispatcher("evenement.jsp").forward(request, response);
         }
         
     }
@@ -89,4 +96,4 @@ public class controllerModificationUtilisateur extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-}
+    }

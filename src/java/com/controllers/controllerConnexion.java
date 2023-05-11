@@ -1,7 +1,8 @@
 
-package com.model.controllers;
+package com.controllers;
+
 import com.model.entites.Utilisateur;
-import com.model.service.UtilisateurService;
+import com.service.UtilisateurService;
 
 import java.io.IOException;
 import java.io.PrintWriter;

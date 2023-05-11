@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-package com.model.controllers;
+
+package com.controllers;
 
 import com.model.entites.Utilisateur;
-import com.model.service.UtilisateurService;
+import com.service.UtilisateurService;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,20 +15,41 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author djeai
+ * @author alexr
  */
-public class controllerUtilisateur extends HttpServlet {
-
+public class controllerInscription extends HttpServlet {
     private List<Utilisateur> listeUtilisateurs;
+    UtilisateurService utiliServ = new UtilisateurService();
     Utilisateur utilisateur = null;
     boolean retour = false;
-    UtilisateurService utilisateurService = new UtilisateurService();
+    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        String nom = request.getParameter("nom");
+        String email = request.getParameter("email");
+
+        String prenom = request.getParameter("prenom");
+        String telephone = request.getParameter("phone");
+        String password = request.getParameter("psw");
+        String bio = request.getParameter("bio");
+        String photo = request.getParameter("photo");
+
         
-         String nom = request.getParameter("nom");
-        
+        utilisateur = new Utilisateur (nom,prenom, password,email, telephone,bio,photo);
+        retour = utiliServ.ajouterUnUtilisateur(utilisateur);
+       
+        if (retour){
+            String message = "L'utilisateur" + nom + "" + " a été ajouté avec success";
+            listeUtilisateurs = utiliServ.afficherLesUtilisateurs();
+            request.setAttribute("message", message);
+            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+            request.getRequestDispatcher("administration.jsp").forward(request, response);
+            
+            
+        }   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

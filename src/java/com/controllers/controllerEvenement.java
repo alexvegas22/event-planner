@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.model.controllers;
+package com.controllers;
 
 import com.model.entites.Evenement;
-import com.model.service.EvenementService;
-import com.model.service.UtilisateurService;
+import com.service.EvenementService;
+import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Time;

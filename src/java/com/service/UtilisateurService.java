@@ -1,5 +1,5 @@
 
-package com.model.service;
+package com.service;
 
 import com.model.dao.UtilisateurImpDao;
 import com.model.entites.Utilisateur;
