@@ -5,31 +5,31 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>controllerInscription</servlet-name>
-        <servlet-class>com.model.controllers.controllerInscription</servlet-class>
+        <servlet-class>com.controllers.controllerInscription</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>controllerDeconnexion</servlet-name>
-        <servlet-class>com.model.controllers.controllerDeconnexion</servlet-class>
+        <servlet-class>com.controllers.controllerDeconnexion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>controllerConnexion</servlet-name>
-        <servlet-class>com.model.controllers.controllerConnexion</servlet-class>
+        <servlet-class>com.controllers.controllerConnexion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>controllerUtilisateur</servlet-name>
-        <servlet-class>com.model.controllers.controllerUtilisateur</servlet-class>
+        <servlet-class>com.controllers.controllerUtilisateur</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>controllerEvenement</servlet-name>
-        <servlet-class>com.model.controllers.controllerEvenement</servlet-class>
+        <servlet-class>com.controllers.controllerEvenement</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>controllerModificationUtilisateur</servlet-name>
-        <servlet-class>com.model.controllers.controllerModificationUtilisateur</servlet-class>
+        <servlet-class>com.controllers.controllerModificationUtilisateur</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>controllerModificationEvenement</servlet-name>
-        <servlet-class>com.model.controllers.controllerModificationEvenement</servlet-class>
+        <servlet-class>com.controllers.controllerModificationEvenement</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>controllerInscription</servlet-name>

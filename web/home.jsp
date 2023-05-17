@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/calendrier.css">
         <link rel="stylesheet" href="css/semaine.css">
         <script src="javascript/calendrier.js" defer></script>
-        <script src="javascript/semaine.js" defer></script>
+        <script src="javascript/jour.js" defer></script>
 
     </head>
     <body>

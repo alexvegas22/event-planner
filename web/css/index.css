@@ -1,22 +1,38 @@
+body{
+    margin-left: 100px;
+    margin-right: 100px;
+    background: #bdbdbd;
+}
+div:not(.feature-section){
+    border-bottom: 5px solid #afab9f ;
+    border-right: 5px solid #afab9f ;
+}
 .logo-section{
     padding-top: 70px;
-
-    background-color: #bdbdbd;
+    margin-bottom:20px;
+    background-color:#afab9f;
     height : 150px;
 }
 .feature-section{
-
+    
     background-color: #bdbdbd;
 }
 .image-section{
     display: flex;
     align-items: center;
+    background-color: #d6cfb4;
   
 }
-.img{
+img{
+    background-color: #d6cfb4;
     width:40%;
 }
+.message{
+    padding : 20px;
+    background-color: #d6cfb4;
+}
 .join{
+    margin : 20px;
     font-size : 40px;
     color : #ffffff;
     background-color:#afab9f;
@@ -32,6 +48,7 @@
 
 }
 .mid-section{
+    margin-bottom: 20px;
     display : flex;
     flex-direction: column;
     align-items: center;

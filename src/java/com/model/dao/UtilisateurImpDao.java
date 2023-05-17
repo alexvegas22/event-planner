@@ -47,11 +47,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 Utilisateur utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("idUser"));
-                utilisateur.setNom(result.getString("nomUser"));
-                utilisateur.setPrenom(result.getString("prenomUser"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
-                utilisateur.setBio(result.getString("bio"));
+                
                 utilisateur.setPhotoProfil(result.getString("photoProfil"));
                 listeUtilisateur.add(utilisateur);
             }
@@ -187,11 +187,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("idUser"));
-                utilisateur.setNom(result.getString("nomUser"));
+                utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
-                utilisateur.setBio(result.getString("bio"));
+                
                 utilisateur.setPhotoProfil(result.getString("photoProfil"));
 
             }

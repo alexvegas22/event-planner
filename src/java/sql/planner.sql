@@ -105,5 +105,8 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO utilisateurs (nom, prenom, email, password)
+INSERT INTO planner.utilisateur (nom, prenom, email, password)
 VALUES ('admin', 'admin', 'admin@admin.com', '1'); 
+
+INSERT INTO planner.utilisateur (nom, prenom, email, password)
+VALUES ('vegas', 'alex', 'alex@admin.com', 'password'); 

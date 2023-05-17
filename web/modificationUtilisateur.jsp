@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Midification Utilisateur</title>
+        <title>Modification Utilisateur</title>
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
         <link rel="stylesheet" href="css/index.css" type="text/css"/>
     </head>
@@ -22,7 +22,7 @@
                 <div>
                   <div>
                 <h2 align="center">Modification des informations</h2>
-                <p align="center"> De l'abonné :<strong><%=(utilisateur != null ? utilisateur.getNom() : "")%> </strong> <strong><%=(utilisateur != null ? utilisateur.getPrenom() : "")%> </strong> </p>
+                <p align="center"> Nom de l'abonné :<strong><%=(utilisateur != null ? utilisateur.getNom() : "")%> </strong> <strong><%=(utilisateur != null ? utilisateur.getPrenom() : "")%> </strong> </p>
 
             </div>
                 <form id="signupForm" method="post" 

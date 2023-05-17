@@ -18,6 +18,9 @@ public class controllerConnexion extends HttpServlet {
     private List<Utilisateur> listeUtilisateurs;
     Utilisateur utilisateur = null;
     UtilisateurService service = new UtilisateurService();
+    String url = "index.jsp";
+            
+    @Override
     public void init() throws ServletException{
         listeUtilisateurs =  service.afficherLesUtilisateurs();
     }
@@ -32,11 +35,9 @@ public class controllerConnexion extends HttpServlet {
         String password = request.getParameter("psw");
         String sauvegarde = request.getParameter("sauvegarde");
         utilisateur = service.verifierEmailMotDePasse(email, password);
-
+        
         if (utilisateur != null) {
-            if(email == "admin@admin.com"){
-                request.getRequestDispatcher("administration.jsp").forward(request, response);
-            }
+            
             connexion = true;
             HttpSession session = request.getSession(true);
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
@@ -54,17 +55,19 @@ public class controllerConnexion extends HttpServlet {
                 }
                 
             }
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-
+            url = "home.jsp";
+            
 
         }
+        if(email == "admin@admin.com"){
+                url = "administration.jsp";
+                
+            }
         if (!connexion) {
-         
             request.setAttribute("invalide", "L'email ou mot de passe est invalide");
-            request.getRequestDispatcher("index.jsp").include(request, response);
            
         }
-
+        request.getRequestDispatcher(url).include(request, response);
     }
 
 
