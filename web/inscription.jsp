@@ -6,7 +6,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>Log in Page</title>
+        <title>Inscription</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
@@ -17,6 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <body>
         <form action='controllerInscription' method='post'> 
         <div id = 'login-grid' class='login-grid'>
+            <div> <H1> Bienvenue!</H1> </div>
             <label for='fname'>Nom: </label>
             <input type='text' placeholder='Entrez votre nom' name='nom' required>
             

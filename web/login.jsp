@@ -14,6 +14,7 @@
     <body>
         <form action='controllerConnexion' method='post'> 
         <div id = 'login-grid' class='login-grid'>
+            <div> <H1> Tu es de Retour!</H1> </div>
             <label for='email'>Username</label>
             <input type='email' placeholder='Enter your username' name='email' required>
         

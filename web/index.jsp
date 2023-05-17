@@ -29,8 +29,8 @@
             <a href="inscription.jsp">
                 <div class="join" > Inscription</div></a>  <br>
                 
-                <a href="evenement_Form.jsp">
-                <div class="join" > Event</div></a> 
+                <a href="presentation.jsp">
+                <div class="join" > À propos de nous</div></a>  
                 
                 
             

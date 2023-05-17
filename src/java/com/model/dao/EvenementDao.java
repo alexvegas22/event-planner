@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Aimen
+ * @author Aimen Djemaoune
  */
 public interface EvenementDao {
     List<Evenement> findAll();

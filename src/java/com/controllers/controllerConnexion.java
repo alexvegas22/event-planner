@@ -47,7 +47,7 @@ public class controllerConnexion extends HttpServlet {
                 if (sauvegarde.equals("yes")) {
                     Cookie monCookie = new Cookie("email", email);
                     Cookie passwordCookie = new Cookie("password", password);
-                    System.out.println("ajouter des cookies");
+                    System.out.println("ajout des cookies");
                     passwordCookie.setMaxAge(60 * 60);
                     monCookie.setMaxAge(60 * 60);
                     response.addCookie(monCookie);

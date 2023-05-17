@@ -29,6 +29,34 @@ public class controllerUtilisateur extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
          String nom = request.getParameter("nom");
+         String intention = request.getParameter("intention");
+         String id = request.getParameter("id");
+         
+         
+        if(intention!=null){
+              if(intention.equals("supprimer")){
+                String message = "l'utilisateur contenant l'id est " + id + " a été supprimé avec succès";
+                int idAbonne = Integer.parseInt(id);
+                System.out.println("operation: " + intention);
+                System.out.println("userId: " + idAbonne);
+                retour = utilisateurService.supprimerUnUtilisateur(idAbonne);
+                 
+                if(retour){
+                    System.out.println("suppression: ");
+                    request.setAttribute("message", message);
+                    listeUtilisateurs = utilisateurService.afficherLesUtilisateurs();
+                    request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+                    request.getRequestDispatcher("administration.jsp").forward(request, response);
+                }
+
+              }else{
+                    System.out.println("modification: ");
+                    int idAbonne = Integer.parseInt(id);
+                    utilisateur = utilisateurService.chercherUtilisateurParID(idAbonne);
+                    request.setAttribute("utilisateur", utilisateur);
+                    request.getRequestDispatcher("modification.jsp").forward(request, response);
+                 }
+         }
         
     }
 

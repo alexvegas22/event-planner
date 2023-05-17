@@ -46,7 +46,7 @@ public class controllerInscription extends HttpServlet {
             listeUtilisateurs = utiliServ.afficherLesUtilisateurs();
             request.setAttribute("message", message);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-            request.getRequestDispatcher("administration.jsp").forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
             
             
         }   
