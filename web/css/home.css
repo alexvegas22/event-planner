@@ -1,11 +1,7 @@
 body{
     background-color: #d6cfb4
 }
-.box{
-    border-bottom: 5px solid #afab9f;
-    border-right: 5px solid #afab9f;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-}
+
 .top-bar {
    display : flex;
    flex-direction: row;

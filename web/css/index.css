@@ -3,15 +3,16 @@ body{
     margin-right: 100px;
     background: #bdbdbd;
 }
-div:not(.feature-section){
-    border-bottom: 5px solid #afab9f ;
-    border-right: 5px solid #afab9f ;
-}
+
 .logo-section{
-    padding-top: 70px;
+    display : flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
     margin-bottom:20px;
     background-color:#afab9f;
-    height : 150px;
+    height : 110px;
 }
 .feature-section{
     
@@ -25,7 +26,7 @@ div:not(.feature-section){
 }
 img{
     background-color: #d6cfb4;
-    width:40%;
+    width:100%;
 }
 .message{
     padding : 20px;
@@ -53,7 +54,7 @@ img{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height : 400px;
+    padding: 35px;
     text-align: center;
     background-color: #d6cfb4;
 }
