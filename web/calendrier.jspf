@@ -11,11 +11,11 @@
     <script src="javascript/calendrier.js" defer></script>
 </head>
 <body>
-<div class="right-section" >
+<div class="right-section box" >
                 <div class="wrapper">
                     <header>
                         <p class="current-date"></p>
-                        <div class="icons">
+                        <div class="icons box">
                             <span id="prev" class="material-symbols-rounded">chevron_left</span>
                             <span id="next" class="material-symbols-rounded">chevron_right</span>
                         </div>

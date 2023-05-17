@@ -9,11 +9,12 @@
   <script src="javascript/jour.js" defer></script>
 </head>
 <body>
-    <div class="event-section">  
+    <div class="event-section box">  
         <header>
             <div class="date">Vos evenements d'aujourd'hui</div>         
         </header>
-        <div class="planificateur">                    
+        <div class="planificateur"> 
+            Vous n'avez aucun évènement
         </div>
     </div>
 </body>

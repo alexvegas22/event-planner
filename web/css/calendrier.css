@@ -8,11 +8,8 @@
 }
 
 .wrapper{
-
     width: 450px;
     background-color: antiquewhite;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
 }
 .wrapper header{
     border-bottom: #d6cfb4 1px solid;
@@ -34,10 +31,10 @@ header .icons span{
     line-height: 38px;
     font-size: 1.9rem;
     user-select: none;
-    border-radius: 50%;
+    
 }
 .icons span:last-child{
-    margin-right: -10px;
+    border-left: 1px solid #afab9f;
 }
 header .icons span:hover{
     background: #f2f2f2;
