@@ -19,17 +19,17 @@ public class UtilisateurImpDao implements UtilisateurDao {
     
     // Déclaration 
     
-    private static final String SQL_SELECT_UTILISATEURS = "select * from utilisateur";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateur where idUser=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateur where nomUser=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateur where EMAIL=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateur where email = ? and password = ?";
+    private static final String SQL_SELECT_UTILISATEURS = "select * from utilisateurs";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateurs where id=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateurs where nom=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where email=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateurs where email = ? and password = ?";
      
-    private static final String SQL_UPDATE = "update utilisateur set email =?, telephone?, password = ?  where id = ?";
+    private static final String SQL_UPDATE = "update utilisateurs set email =?, telephone?, password = ?  where id = ?";
    
-    private static final String SQL_DELETE = "delete from utilisateur where id = ?";
+    private static final String SQL_DELETE = "delete from utilisateurs where id = ?";
     
-    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateur (nomUser, prenomUser, email, telephone, password, bio,photoProfil) value(?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs (nom, prenom, email, telephone, password, bio,photoProfil) value(?,?,?,?,?,?,?)";
 
     @Override
     public List<Utilisateur> findAll() {
@@ -46,12 +46,12 @@ public class UtilisateurImpDao implements UtilisateurDao {
             listeUtilisateur = new ArrayList();
             while (result.next()) {
                 Utilisateur utilisateur = new Utilisateur();
-                utilisateur.setId(result.getInt("idUser"));
+                utilisateur.setId(result.getInt("id"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
-                
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photoProfil"));
                 listeUtilisateur.add(utilisateur);
             }
@@ -80,8 +80,8 @@ public class UtilisateurImpDao implements UtilisateurDao {
             //initilisation de la listeUtilisateur
             while (result.next()) {
                 utilisateur = new Utilisateur();
-                utilisateur.setId(result.getInt("idUser"));
-                utilisateur.setNom(result.getString("nomUser"));
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
@@ -115,8 +115,8 @@ public class UtilisateurImpDao implements UtilisateurDao {
             //initilisation de la listeUtilisateur
             while (result.next()) {
                 utilisateur = new Utilisateur();
-                utilisateur.setId(result.getInt("idUser"));
-                utilisateur.setNom(result.getString("nomUser"));
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
@@ -150,8 +150,8 @@ public class UtilisateurImpDao implements UtilisateurDao {
             //initilisation de la listeUtilisateur
             while (result.next()) {
                 utilisateur = new Utilisateur();
-                utilisateur.setId(result.getInt("idUser"));
-                utilisateur.setNom(result.getString("nomUser"));
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
@@ -186,12 +186,12 @@ public class UtilisateurImpDao implements UtilisateurDao {
             //initilisation de la listeUtilisateur
             while (result.next()) {
                 utilisateur = new Utilisateur();
-                utilisateur.setId(result.getInt("idUser"));
+                utilisateur.setId(result.getInt("id"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
-                
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photoProfil"));
 
             }
