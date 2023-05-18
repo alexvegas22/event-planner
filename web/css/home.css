@@ -7,17 +7,25 @@ body{
    flex-direction: row;
     width : 100%;
     background-color: antiquewhite ;
-    
+    justify-content: space-between;
     align-items:  center;
-    justify-content: stretch;
     margin-bottom: 50px
 }
 
-.top-bar>img{
-    
+.top-bar>div>img{
     width: 100px;
     height : 100px;
     padding : 20px;
+}
+.top-bar>div{
+    display:flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+.top-bar>div>h1{
+    align-self: center;
+    justify-content: center;
 }
 
 .home-section{

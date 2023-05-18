@@ -1,8 +1,15 @@
 <%@ page pageEncoding="UTF-8" %>
 
     <div class="top-bar box">
-                <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
-                <h1> <%=session.getAttribute("nom") %> </h1> 
+        <div>        
+            <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
+            <h1> <%=session.getAttribute("nom") %> </h1> 
+        </div>
+        <a href="index.jsp"><h1>Planner</h1></a>
+        <div>
+            <!-- comment 
                 <img src="https://img.icons8.com/material-rounded/60/null/settings.png"/>
+              -->
                 <img src="https://img.icons8.com/material-rounded/60/null/search.png"/>
     </div>
+        </div>

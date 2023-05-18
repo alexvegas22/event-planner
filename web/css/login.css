@@ -1,4 +1,6 @@
-
+body{
+    background: antiquewhite
+}
 .login-grid{
     align-self: center;
     margin-left: 30%;

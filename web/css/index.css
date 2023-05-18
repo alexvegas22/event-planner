@@ -1,7 +1,7 @@
 body{
     margin-left: 100px;
     margin-right: 100px;
-    background: #bdbdbd;
+    background: antiquewhite;
 }
 
 .logo-section{
@@ -11,12 +11,12 @@ body{
     justify-content: center;
     text-align: center;
     margin-bottom:20px;
-    background-color:#afab9f;
+    background-color:#dbdbdb;
     height : 110px;
 }
 .feature-section{
     
-    background-color: #bdbdbd;
+    
 }
 .image-section{
     display: flex;

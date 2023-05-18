@@ -3,7 +3,51 @@
     Created on : 2023-05-16, 21:45:17
     Author     : Djemaoune Aimen
 */
+body{
+    background-image: url("../images/indexEvenement.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
+    background-size: 150%;
+  }
 h3{
-    color:  activeborder;
+    background-color : #d6cfb4;
+    margin-bottom: 0;
+}
+h2{
+    margin : 0;
+    padding: 20px;
+}
+.links{
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-content: space-between;
+    position: fixed;
+}
+.links>a{
+    background-color: antiquewhite;
+    padding: 5px;
+    margin : 5px;
+    
+    color : darkred;
+}
+.banner{
+    margin-top : 0;
+    background-color : #d6cfb4;
+}
+.main{
+    color : black;
+    margin-left : 14rem;
+    margin-right : 14rem;
+    align-self: center;
+}
+.text{
+    border-bottom: 5px solid #afab9f;
+    border-right: 5px solid #afab9f;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    background-color: antiquewhite;
+    padding: 20px;
+    margin: 20px;
 }

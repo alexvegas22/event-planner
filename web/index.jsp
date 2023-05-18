@@ -11,7 +11,7 @@
 
     </head>
     <body>
-        <h1 class="logo-section"> Plannificateur d'évènements </h1>
+        <h1 class="logo-section box"> Plannificateur d'évènements </h1>
         
         <div class="feature-section"> 
             <div class = "message box"> <h4> Notre site vous propose une panoplie de méthodes vous permettant de mieux vous organiser

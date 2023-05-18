@@ -29,7 +29,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
    
     private static final String SQL_DELETE = "delete from utilisateurs where id = ?";
     
-    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs (nom, prenom, email, telephone, password, bio,photoProfil) value(?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs (nom, prenom, email, telephone, password, bio,photo) value(?,?,?,?,?,?,?)";
 
     @Override
     public List<Utilisateur> findAll() {
@@ -52,7 +52,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
-                utilisateur.setPhotoProfil(result.getString("photoProfil"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
                 listeUtilisateur.add(utilisateur);
             }
             ConnexionBD.closeConnection();
@@ -86,7 +86,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
-                utilisateur.setPhotoProfil(result.getString("photoProfil"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
             ConnexionBD.closeConnection();
@@ -121,7 +121,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
-                utilisateur.setPhotoProfil(result.getString("photoProfil"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
             ConnexionBD.closeConnection();
@@ -156,7 +156,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
-                utilisateur.setPhotoProfil(result.getString("photoProfil"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
             ConnexionBD.closeConnection();
@@ -192,7 +192,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
-                utilisateur.setPhotoProfil(result.getString("photoProfil"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
             ConnexionBD.closeConnection();

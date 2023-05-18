@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <body>
         <form action='controllerInscription' method='post'> 
-        <div id = 'login-grid' class='login-grid'>
+        <div id = 'login-grid' class='login-grid box'>
             <div> <H1> Bienvenue!</H1> </div>
             <label for='fname'>Nom: </label>
             <input type='text' placeholder='Entrez votre nom' name='nom' required>
@@ -47,7 +47,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         
                          
                             
-            <button type='submit'> S'INSCRIRE</button> 
+            <button class="boutton" type='submit'> S'INSCRIRE</button> 
           
         </div> <br>
         
