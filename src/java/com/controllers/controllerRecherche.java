@@ -4,6 +4,8 @@
  */
 package com.controllers;
 
+import com.model.dao.UtilisateurImpDao;
+import com.model.entites.Utilisateur;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,7 +33,15 @@ public class controllerRecherche extends HttpServlet {
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        //Instance du Dao
+        UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
+        //Initialisation user
+        Utilisateur userRecherche = null; 
+        if (request.getParameter("search")!=null){
+            userRecherche = daoUser.findByName(request.getParameter("search")); 
+            request.setAttribute("userRecherche", userRecherche);
+        }
+        System.out.println("USER : " +userRecherche.toString() );
         request.getRequestDispatcher("recherche.jsp").include(request, response);
     }
 

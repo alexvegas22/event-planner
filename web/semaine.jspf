@@ -14,7 +14,23 @@
             <div class="date">Vos evenements d'aujourd'hui</div>         
         </header>
         <div class="planificateur"> 
-            Vous n'avez aucun évènement
+            
+            <div class="evenement box">
+                <div class="titre_evenement">
+                    Marriage
+                </div>
+                <div class='contenu'>
+                    Détails de l'événement <br>  
+                    Organisateur : Alex<br>
+                    Date : 10 mai<br>
+                    Description : blablabla
+                </div>
+            </div>
+            
+            
+            
+            
+            
         </div>
     </div>
 </body>

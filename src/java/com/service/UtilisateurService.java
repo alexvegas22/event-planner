@@ -17,6 +17,7 @@ public class UtilisateurService {
     boolean retour = false;
     
     public List<Utilisateur> afficherLesUtilisateurs() {
+        System.out.println("AFFICHER LISTE UTILISATEUR");
         listeUtilisateurs = dao.findAll();
         return listeUtilisateurs;
     }
@@ -38,7 +39,7 @@ public class UtilisateurService {
     
     public Utilisateur verifierEmailMotDePasse(String email, String motDePasse) {
           utilisateur = dao.existsByEmailAndPassword(email, motDePasse);
-          
+          System.out.println("success");
         return utilisateur;
     }
     

@@ -42,6 +42,8 @@ public class controllerConnexion extends HttpServlet {
             HttpSession session = request.getSession(true);
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
             session.setAttribute("prenom", utilisateur.getPrenom());
+            request.setAttribute("utilisateur", utilisateur);
+            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
 
             if (sauvegarde != null) {
                 if (sauvegarde.equals("yes")) {
@@ -59,7 +61,7 @@ public class controllerConnexion extends HttpServlet {
             
 
         }
-        if(email == "admin@admin.com"){
+        if(email.equals("admin@admin.com")){
                 url = "administration.jsp";
                 
             }
@@ -67,6 +69,7 @@ public class controllerConnexion extends HttpServlet {
             request.setAttribute("invalide", "L'email ou mot de passe est invalide");
            
         }
+        System.out.println("url : " + url);
         request.getRequestDispatcher(url).include(request, response);
     }
 

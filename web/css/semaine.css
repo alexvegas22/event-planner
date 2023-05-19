@@ -32,3 +32,17 @@ header .date{
     justify-content: center;
     align-content: center;
 }
+.evenement{
+    background-color: antiquewhite;
+    height : 300px;
+    width: 250px;
+}
+div > .titre_evenement{
+    color : black;
+    font-size: 30px;
+    border-bottom: 2px solid #d6cfb4
+}
+.evenement .contenu{
+    margin : 20px;
+    
+}

@@ -1,19 +1,15 @@
+<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.entites.Utilisateur"%>
 <%  
-    ArrayList<Utilisateur> listeUtilisateurs = (ArrayList)request.getAttribute("listeUtilisateurs");
+    List<Utilisateur> listeUtilisateurs = (List<Utilisateur>)request.getAttribute("listeUtilisateurs");
      Utilisateur  utilisateur = (Utilisateur)request.getAttribute("utilisateur");
 %>
-<!DOCTYPE html>
-<html>
-    <body>  
         <br>
         <h1>Voici Tous les utilisateurs existant</h1>
-        <% if( request.getAttribute("message")!=null) { %>
-         <center><b><font color=green> <%=request.getAttribute("message")  %></font><b></center>
-        <%}%>
+        
         <br> 
           <table style="width:79%">
     <tr>
@@ -59,9 +55,3 @@
      </tr>
    
    <% } } %>
-   
-   
-        
-        
-    </body>
-</html>
