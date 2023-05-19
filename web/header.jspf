@@ -1,15 +1,22 @@
 <%@ page pageEncoding="UTF-8" %>
-
+<head><link rel="stylesheet" href="css/header.css"/>
+</head>
     <div class="top-bar box">
         <div>        
             <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
             <h1> <%=session.getAttribute("nom") %> </h1> 
         </div>
-        <a href="index.jsp"><h1>Planner</h1></a>
-        <div>
+        <a href="index.jsp" class='title'><h1>Planner</h1></a>
+        
             <!-- comment 
                 <img src="https://img.icons8.com/material-rounded/60/null/settings.png"/>
               -->
-                <img src="https://img.icons8.com/material-rounded/60/null/search.png"/>
-    </div>
-        </div>
+        <form action="controllerRecherche" class="search-bar">
+            <input type="search" name="search" pattern=".*\S.*" required>
+            <button class="search-btn" type="submit">
+                    <span>Faites une recherche !</span>
+            </button>
+        </form>
+              
+    
+</div>

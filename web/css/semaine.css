@@ -7,7 +7,9 @@
     font-family: 'Poppins', sans-serif;
 }
 .event-section{
-    margin : 20px;
+    margin-left : 20px;
+    margin-right:10px;
+    
     width: 100%;
     background-color: antiquewhite;
 }

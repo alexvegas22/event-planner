@@ -31,6 +31,10 @@
         <servlet-name>controllerModificationEvenement</servlet-name>
         <servlet-class>com.controllers.controllerModificationEvenement</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controllerRecherche</servlet-name>
+        <servlet-class>com.controllers.controllerRecherche</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerInscription</servlet-name>
         <url-pattern>/controllerInscription</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>controllerModificationEvenement</servlet-name>
         <url-pattern>/controllerModificationEvenement</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerRecherche</servlet-name>
+        <url-pattern>/controllerRecherche</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

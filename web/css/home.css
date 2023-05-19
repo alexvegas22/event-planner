@@ -11,10 +11,12 @@ body{
     align-items:  center;
     margin-bottom: 50px
 }
-
+.top-bar>.title{
+    position:absolute;
+    left : 50%;
+}
 .top-bar>div>img{
-    width: 100px;
-    height : 100px;
+
     padding : 20px;
 }
 .top-bar>div{
@@ -22,8 +24,10 @@ body{
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    
 }
 .top-bar>div>h1{
+    
     align-self: center;
     justify-content: center;
 }
@@ -36,6 +40,8 @@ body{
 }
 
 .right-section{
+    margin-left: 10px;
+    margin-right: 20px;
     color : black;
     align-items:  stretch;
     display:flex;
@@ -51,3 +57,4 @@ body{
     color : black;
     margin: 50px;
 }
+

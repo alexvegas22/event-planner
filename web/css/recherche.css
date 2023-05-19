@@ -1,5 +1,6 @@
-*{
-margin: 10px;
+
+body{
+    background: antiquewhite
 }
 .grid-container>a{
     color:whitesmoke;
