@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author djeai
  */
-public class rechercheAdmin extends HttpServlet {
+public class controllerRechercheAdmin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
