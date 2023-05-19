@@ -4,6 +4,8 @@
  */
 package com.controllers;
 
+import com.model.dao.UtilisateurImpDao;
+import com.model.entites.Utilisateur;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,29 +31,17 @@ public class rechercheAdmin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet rechercheAdmin</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet rechercheAdmin at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        //Instance du Dao
+        UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
+        //Initialisation user
+        Utilisateur userRecherche = null; 
+        if (request.getParameter("search")!=null){
+            userRecherche = daoUser.findByName(request.getParameter("nom")); 
+            request.setAttribute("userRecherche", userRecherche);
         }
+        System.out.println("USER : " +userRecherche.toString() );
+        request.getRequestDispatcher("recherche.jsp").include(request, response);
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -71,6 +61,7 @@ public class rechercheAdmin extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     /**
      * Returns a short description of the servlet.
      *
@@ -79,6 +70,6 @@ public class rechercheAdmin extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
 
 }
