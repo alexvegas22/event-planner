@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,6 +46,11 @@ public class controllerInscription extends HttpServlet {
             String message = "L'utilisateur" + nom + "" + " a été ajouté avec success";
             listeUtilisateurs = utiliServ.afficherLesUtilisateurs();
             request.setAttribute("message", message);
+            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+            HttpSession session = request.getSession(true);
+            ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
+            session.setAttribute("prenom", utilisateur.getPrenom());
+            request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
             request.getRequestDispatcher("home.jsp").forward(request, response);
             

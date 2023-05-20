@@ -33,7 +33,6 @@ public class controllerConnexion extends HttpServlet {
         String email = request.getParameter("email");
         System.out.println("email " + email);
         String password = request.getParameter("psw");
-        String sauvegarde = request.getParameter("sauvegarde");
         utilisateur = service.verifierEmailMotDePasse(email, password);
         
         if (utilisateur != null) {
@@ -45,17 +44,6 @@ public class controllerConnexion extends HttpServlet {
             request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
             
-            if (sauvegarde != null) {
-                if (sauvegarde.equals("yes")) {
-                    Cookie monCookie = new Cookie("email", email);
-                    Cookie passwordCookie = new Cookie("password", password);
-                    System.out.println("ajout des cookies");
-                    passwordCookie.setMaxAge(60 * 60);
-                    monCookie.setMaxAge(60 * 60);
-                    response.addCookie(monCookie);
-                    response.addCookie(passwordCookie);
-                }        
-            }
             url = "home.jsp";
             if(email.equals("admin@admin.com")){
             
