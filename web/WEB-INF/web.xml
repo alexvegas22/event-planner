@@ -39,6 +39,10 @@
         <servlet-name>rechercheAdmin</servlet-name>
         <servlet-class>com.controllers.controllerRechercheAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controllerRechercheAdmin</servlet-name>
+        <servlet-class>com.controllers.controllerRechercheAdmin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerInscription</servlet-name>
         <url-pattern>/controllerInscription</url-pattern>
@@ -74,6 +78,10 @@
     <servlet-mapping>
         <servlet-name>rechercheAdmin</servlet-name>
         <url-pattern>/rechercheAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerRechercheAdmin</servlet-name>
+        <url-pattern>/controllerRechercheAdmin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

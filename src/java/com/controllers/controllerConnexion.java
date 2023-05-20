@@ -44,7 +44,7 @@ public class controllerConnexion extends HttpServlet {
             session.setAttribute("prenom", utilisateur.getPrenom());
             request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-
+            
             if (sauvegarde != null) {
                 if (sauvegarde.equals("yes")) {
                     Cookie monCookie = new Cookie("email", email);
@@ -54,20 +54,16 @@ public class controllerConnexion extends HttpServlet {
                     monCookie.setMaxAge(60 * 60);
                     response.addCookie(monCookie);
                     response.addCookie(passwordCookie);
-                }
-                
+                }        
             }
             url = "home.jsp";
+            if(email.equals("admin@admin.com")){
             
-
-        }
-        if(email.equals("admin@admin.com")){
-                url = "administration.jsp";
-                
+                url = "administration.jsp";        
             }
+        }
         if (!connexion) {
             request.setAttribute("invalide", "L'email ou mot de passe est invalide");
-           
         }
         System.out.println("url : " + url);
         request.getRequestDispatcher(url).include(request, response);

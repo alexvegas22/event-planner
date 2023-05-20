@@ -1,24 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.controllers;
 
 import com.model.dao.UtilisateurImpDao;
 import com.model.entites.Utilisateur;
+import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  *
- * @author djeai
+ * @author alexr
  */
 public class controllerRechercheAdmin extends HttpServlet {
-
+    private List<Utilisateur> listeUtilisateurs;
+    Utilisateur utilisateur = null;
+        UtilisateurService service = new UtilisateurService();
+        
+    @Override
+    public void init() throws ServletException{
+        listeUtilisateurs =  service.afficherLesUtilisateurs();
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,17 +35,24 @@ public class controllerRechercheAdmin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        //Instance du Dao
-        UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
-        //Initialisation user
-        Utilisateur userRecherche = null; 
-        if (request.getParameter("search")!=null){
-            userRecherche = daoUser.findByName(request.getParameter("nom")); 
-            request.setAttribute("userRecherche", userRecherche);
-        }
-        System.out.println("USER : " +userRecherche.toString() );
-        request.getRequestDispatcher("recherche.jsp").include(request, response);
+        
+        
+        request.setAttribute("utilisateur", utilisateur);
+            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+        request.setAttribute("recherche", request.getAttribute("recherche"));
+        request.getRequestDispatcher("administration.jsp").include(request, response);
+        
     }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

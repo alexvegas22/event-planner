@@ -13,14 +13,7 @@
     <body>
           <%@ include file="jspf/header.jspf" %> 
         <div class="home-section"><h1>Résultats pour : <p id='recherche'><%= request.getParameter("search") %> </p></h1>
-        <form>
-            <label for='recherche1'>Recherche par</label>
-            <input type='text' placeholder='filtre' name='recherche1' required> <br>
-            <label for='recherche2'>Recherche par</label>
-            <input type='text' placeholder='filtre' name='recherche2'> <br>
-            <label for='recherche3'>Recherche par</label>
-            <input type='text' placeholder='filtre' name='recherche3'> <br>
-        </form>
+        
         </div>
     </body>
 </html>
