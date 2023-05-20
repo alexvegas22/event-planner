@@ -1,7 +1,6 @@
 body{
     margin-left: 100px;
     margin-right: 100px;
-    background: antiquewhite;
 }
 
 .logo-section{
@@ -11,32 +10,24 @@ body{
     justify-content: center;
     text-align: center;
     margin-bottom:20px;
-    background-color:#dbdbdb;
     height : 110px;
 }
-.feature-section{
-    
-    
-}
+
 .image-section{
     display: flex;
     align-items: center;
-    background-color: #d6cfb4;
-  
 }
 img{
-    background-color: #d6cfb4;
     width:100%;
 }
 .message{
+    color : black;
     padding : 20px;
-    background-color: #d6cfb4;
 }
 .join{
     margin : 20px;
     font-size : 40px;
     color : #ffffff;
-    background-color:#afab9f;
     border-radius: 5px;
     width : 250px;
     cursor: pointer;
@@ -56,10 +47,4 @@ img{
     justify-content: center;
     padding: 35px;
     text-align: center;
-    background-color: #d6cfb4;
-}
-.join:hover{
-    background-color : #ffffff;
-    color:#afab9f;
-
 }

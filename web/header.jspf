@@ -1,22 +1,26 @@
 <%@ page pageEncoding="UTF-8" %>
 <head><link rel="stylesheet" href="css/header.css"/>
 </head>
-    <div class="top-bar box">
-        <div>        
-            <img src="https://img.icons8.com/material-rounded/60/null/user-male-circle.png"/>
-            <h1> <%=session.getAttribute("nom") %> </h1> 
-        </div>
-        <a href="index.jsp" class='title'><h1>Planner</h1></a>
-        
-            <!-- comment 
-                <img src="https://img.icons8.com/material-rounded/60/null/settings.png"/>
-              -->
-        <form action="controllerRecherche" class="search-bar">
-            <input type="search" name="search" pattern=".*\S.*" required>
-            <button class="search-btn" type="submit">
-                    <span>Faites une recherche !</span>
-            </button>
-        </form>
-              
+<header class="header">
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="home.jsp" > <h1> Mon compte (<%=session.getAttribute("nom") %>) </h1>  </a>
+                
+            </li>
+            <li class="nav-item">
+                <a href="index.jsp" class='title'><h1>Planner</h1></a>
+            </li>
+            <li class="nav-item">
+                <form action="controllerRecherche" class="search-bar">
+                    <input type="search" name="search" pattern=".*\S.*" required>
+                    <button class="search-btn" type="submit">
+                        <span>Faites une recherche !</span>
+                    </button>
+                </form>
+            </li>
+        </ul>
     
-</div>
+    </nav>
+    
+</header>

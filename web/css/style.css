@@ -2,14 +2,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
+:root {
+    --ruler: 16px;
+    --color-red: #AE1100;
+    --color-bg: #EBECF0;
+    --color-shadow: #BABECC;
+    --color-white: #FFF;
+}
 *{
    text-align: center;
     border : 0;
     margin : 0;
     font-family: 'Poppins', sans-serif;
 }
-.box{
+body, html {
+  background-color:var(--color-bg);
+}
+div, p {
+  color: var(--color-shadow);
+  text-shadow: 1px 1px 1px var(--color-white);
+}
+
+button, input {
+  border: 0;
+  outline: 0;
+  font-size: var(--ruler);
+  border-radius: 320px;
+  padding: var(--ruler);
+  background-color:var(--color-bg);
+  text-shadow: 1px 1px 0 var(--color-white);
+}
+
+input {
+  margin-right: 8px;
+  box-shadow:  inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input:focus {
+    box-shadow:  inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+  }
+
+button {
+  color:#61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  
+  
+}
+button:active {
+    box-shadow: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+  }
+button:hover {
+    box-shadow: -2px -2px 5px var(--color-white), 2px 2px 5px var(--color-shadow);
+  }
+  
+  
+.box-old{
     border-bottom: 5px solid #afab9f;
     border-right: 5px solid #afab9f;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);

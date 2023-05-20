@@ -1,39 +1,8 @@
 body{
     background-color: #d6cfb4
 }
-
-.top-bar {
-   display : flex;
-   flex-direction: row;
-    width : 100%;
-    background-color: antiquewhite ;
-    justify-content: space-between;
-    align-items:  center;
-    margin-bottom: 50px
-}
-.top-bar>.title{
-    position:absolute;
-    left : 50%;
-}
-.top-bar>div>img{
-
-    padding : 20px;
-}
-.top-bar>div{
-    display:flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    
-}
-.top-bar>div>h1{
-    
-    align-self: center;
-    justify-content: center;
-}
-
 .home-section{
-    background-color: #d6cfb4;
+    margin: 20px;
     display : flex;
     flex-direction: row;
     height: 100%;
@@ -46,11 +15,6 @@ body{
     align-items:  stretch;
     display:flex;
     flex-direction: column; 
-}
-
-.nav-button{
-    height: 50px;
-    width:50px;
 }
 
 .r-s-btm{

@@ -7,10 +7,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.wrapper{
-    
+.wrapper{   
     width: 450px;
-    background-color: antiquewhite;
+    box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
 }
 .wrapper header{
     border-bottom: #d6cfb4 1px solid;
@@ -34,9 +33,7 @@ header .icons span{
     user-select: none;
     
 }
-.icons span:last-child{
-    border-left: 1px solid #afab9f;
-}
+
 header .icons span:hover{
     background: #f2f2f2;
 }
@@ -90,7 +87,7 @@ header .current-date{
     transform: translate(-50%, -50%);
 }
 .days li.active::before{
-    background: #d6cfb4;
+    background: var(--color-shadow);
 }
 .days li:not(.active):hover::before{
     background: #f2f2f2;
