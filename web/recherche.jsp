@@ -11,7 +11,7 @@
     </head>
  
     <body>
-          <%@ include file="header.jspf" %> 
+          <%@ include file="jspf/header.jspf" %> 
         <div class="home-section"><h1>Résultats pour : <p id='recherche'><%= request.getParameter("search") %> </p></h1>
         <form>
             <label for='recherche1'>Recherche par</label>

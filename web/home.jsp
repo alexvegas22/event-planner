@@ -12,15 +12,16 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
         <link rel="stylesheet" href="css/calendrier.css">
         <link rel="stylesheet" href="css/semaine.css">
+        <link rel="stylesheet" href="css/header.css">
         <script src="javascript/calendrier.js" defer></script>
         <script src="javascript/jour.js" defer></script>
 
     </head>
     <body>
-        <%@ include file="header.jspf" %>  
+        <%@ include file="jspf/header.jspf" %>  
         <div class="home-section">
-           <%@ include file="semaine.jspf" %>  
-           <%@ include file="calendrier.jspf" %> 
+           <%@ include file="jspf/semaine.jspf" %>  
+           <%@ include file="jspf/calendrier.jspf" %> 
         </div>
     </body>
 </html>

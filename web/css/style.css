@@ -72,3 +72,9 @@ button:hover {
 a{
     text-decoration: none;
 }
+
+table{
+    justify-self: center;
+    width: 50%;
+    margin : auto;
+}

@@ -8,10 +8,10 @@
      Utilisateur  utilisateur = (Utilisateur)request.getAttribute("utilisateur");
 %>
         <br>
-        <h1>Voici Tous les utilisateurs existant</h1>
+        <h1>Voici Tous les utilisateurs existants</h1>
         
         <br> 
-          <table style="width:79%">
+          <table>
     <tr>
       <th>Id</th>
       <th>Nom</th>
@@ -53,5 +53,5 @@
     <img alt="etu image" src="images/<%=user.getPhotoProfil()%>" height="42" width="50"/> 
     </td> 
      </tr>
-   
+          </table>
    <% } } %>
