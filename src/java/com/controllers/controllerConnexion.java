@@ -1,4 +1,3 @@
-
 package com.controllers;
 
 import com.model.entites.Utilisateur;
@@ -15,14 +14,15 @@ import javax.servlet.http.*;
  * @author alexr
  */
 public class controllerConnexion extends HttpServlet {
+
     private List<Utilisateur> listeUtilisateurs;
     Utilisateur utilisateur = null;
     UtilisateurService service = new UtilisateurService();
     String url = "index.jsp";
-            
+
     @Override
-    public void init() throws ServletException{
-        listeUtilisateurs =  service.afficherLesUtilisateurs();
+    public void init() throws ServletException {
+        listeUtilisateurs = service.afficherLesUtilisateurs();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -34,20 +34,20 @@ public class controllerConnexion extends HttpServlet {
         System.out.println("email " + email);
         String password = request.getParameter("psw");
         utilisateur = service.verifierEmailMotDePasse(email, password);
-        
+
         if (utilisateur != null) {
-            
+
             connexion = true;
             HttpSession session = request.getSession(true);
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
             session.setAttribute("prenom", utilisateur.getPrenom());
             request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-            
+
             url = "home.jsp";
-            if(email.equals("admin@admin.com")){
-            
-                url = "administration.jsp";        
+            if (email.equals("admin@admin.com")) {
+
+                url = "administration.jsp";
             }
         }
         if (!connexion) {
@@ -56,7 +56,6 @@ public class controllerConnexion extends HttpServlet {
         System.out.println("url : " + url);
         request.getRequestDispatcher(url).include(request, response);
     }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

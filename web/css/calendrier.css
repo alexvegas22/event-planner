@@ -18,9 +18,16 @@
     padding: 25px 30px 10px;
     justify-content: space-between;
 }
-header .icons{
+.icons{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
+header button{
+    padding : 0;
+}
+
 header .icons span{
     height: 38px;
     width: 38px;
@@ -30,17 +37,15 @@ header .icons span{
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
-    user-select: none;
-    
+    user-select: none;  
 }
 
-header .icons span:hover{
-    background: #f2f2f2;
-}
+
 header .current-date{
     color : #202020;
     font-size: 1.45rem;
     font-weight: 500;
+    
 }
 .calendar{
     padding: 20px;

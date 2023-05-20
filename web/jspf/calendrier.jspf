@@ -14,10 +14,11 @@
 <div class="right-section box" >
                 <div class="wrapper">
                     <header>
-                        <p class="current-date"></p>
-                        <div class="icons box">
-                            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                            <span id="next" class="material-symbols-rounded">chevron_right</span>
+                        
+                        <div class="icons">
+                            <button><span id="prev" class="material-symbols-rounded">chevron_left</span></button>
+                            <p class="current-date"></p>
+                            <button><span id="next" class="material-symbols-rounded">chevron_right</span></button>
                         </div>
                     </header>
                     <div class="calendar">

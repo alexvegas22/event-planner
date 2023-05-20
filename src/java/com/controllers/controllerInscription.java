@@ -1,4 +1,3 @@
-
 package com.controllers;
 
 import com.model.entites.Utilisateur;
@@ -19,11 +18,11 @@ import javax.servlet.http.HttpSession;
  * @author alexr
  */
 public class controllerInscription extends HttpServlet {
+
     private List<Utilisateur> listeUtilisateurs;
     UtilisateurService utiliServ = new UtilisateurService();
     Utilisateur utilisateur = null;
     boolean retour = false;
-    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -38,11 +37,10 @@ public class controllerInscription extends HttpServlet {
         String bio = request.getParameter("bio");
         String photo = request.getParameter("photo");
 
-        
-        utilisateur = new Utilisateur (nom,prenom, password,email, telephone,bio,photo);
+        utilisateur = new Utilisateur(nom, prenom, password, email, telephone, bio, photo);
         retour = utiliServ.ajouterUnUtilisateur(utilisateur);
-       
-        if (retour){
+
+        if (retour) {
             String message = "L'utilisateur" + nom + "" + " a été ajouté avec success";
             listeUtilisateurs = utiliServ.afficherLesUtilisateurs();
             request.setAttribute("message", message);
@@ -53,9 +51,8 @@ public class controllerInscription extends HttpServlet {
             request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
             request.getRequestDispatcher("home.jsp").forward(request, response);
-            
-            
-        }   
+
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
