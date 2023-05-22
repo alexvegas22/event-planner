@@ -15,21 +15,7 @@ CREATE SCHEMA IF NOT EXISTS `planner` DEFAULT CHARACTER SET utf8mb4 ;
 USE `planner` ;
 
 -- -----------------------------------------------------
--- Table `planner`.`Administrateur`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`administrateur` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(65) NOT NULL,
-  `prenom` VARCHAR(65) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(65) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 ;
-
--- -----------------------------------------------------
--- Table `planner`.`Utilisateur`
+-- Table `planner`.`utilisateur`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `planner`.`utilisateurs` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -46,44 +32,30 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 ;
 
 -- -----------------------------------------------------
--- Table `planner`.`Evenement`
+-- Table `planner`.`evenement`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `planner`.`evenements` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(65) NOT NULL,
   `lieux` VARCHAR(65) NOT NULL,
   `debut` DATE NOT NULL,
-  `fin` date NOT NULL,
+  `fin` DATE NOT NULL,
   `description` LONGTEXT,
   `photoEvent` VARCHAR(65),
-  `categorie` VARCHAR(65) NOT NULL,
-  `public` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 ;
 
 -- -----------------------------------------------------
--- Table `planner`.`Organisateur`
+-- Table `planner`.`todo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`organisateurs` (
-  `idOrg` INT NOT NULL,
-  `idEvenement` INT NOT NULL,
-  PRIMARY KEY (`idOrg`, `idEvenement`),
-  FOREIGN KEY (`idOrg`) REFERENCES projetsession.utilisateurs (`id`),
-  FOREIGN KEY (`idEvenement`) REFERENCES projetsession.evenements (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 ;
-
--- -----------------------------------------------------
--- Table `planner`.`Participant`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`participants` (
-  `idParticipant` INT NOT NULL,
-  `idEvenement` INT NOT NULL,
-  PRIMARY KEY (`idParticipant`, `idEvenement`),
-  FOREIGN KEY (`idParticipant`) REFERENCES projetsession.utilisateurs (`id`),
-  FOREIGN KEY (`idEvenement`) REFERENCES projetsession.evenements (`id`))
+CREATE TABLE IF NOT EXISTS `planner`.`todo` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `tache` VARCHAR(255) NOT NULL,
+  `fait` BOOLEAN,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4 ;
 
@@ -92,9 +64,3 @@ DEFAULT CHARACTER SET = utf8mb4 ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-INSERT INTO planner.utilisateurs (nom, prenom, email, password)
-VALUES ('admin', 'admin', 'admin@admin.com', '1'); 
-
-INSERT INTO planner.utilisateurs (nom, prenom, email, password)
-VALUES ('vegas', 'alex', 'alex@admin.com', 'password'); 
