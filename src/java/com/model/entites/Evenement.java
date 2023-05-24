@@ -16,6 +16,7 @@ public class Evenement implements Serializable {
     private int idEvent;
     private String nomEvent;
     private String lieux;
+    private Date date;
     private Time heureDebut;
     private Time heureFin;
     private String description;
@@ -30,8 +31,9 @@ public class Evenement implements Serializable {
         this.idEvent = idEvent;
     }
 
-    public Evenement(String nomEvent, Time heureDebut, Time heureFin, String description) {
+    public Evenement(String nomEvent,String lieuxEvent, Time heureDebut, Time heureFin, String description) {
         this.nomEvent = nomEvent;
+        this.lieux = lieuxEvent;
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
         this.description = description;

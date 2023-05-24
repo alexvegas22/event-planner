@@ -17,8 +17,10 @@ public class Utilisateur implements Serializable {
     private int idUser;
     private String nom;
     private String prenom;
-    private String password;
     private String email;
+    private String telephone;
+    private String password;
+    private String bio;
     private String photoProfil;
     List<Evenement> listeEvenements;
     
@@ -37,11 +39,13 @@ public class Utilisateur implements Serializable {
         listeEvenements = new ArrayList();
     }
 
-    public Utilisateur(String nom, String prenom, String password, String email, String photoProfil) {
+    public Utilisateur(String nom, String prenom, String password, String email, String telephone , String bio , String photoProfil) {
         this.nom = nom;
         this.prenom = prenom;
         this.password = password;
         this.email = email;
+        this.telephone = telephone;
+        this.bio = bio;
         this.photoProfil = photoProfil;
         listeEvenements = new ArrayList();
     }
@@ -57,7 +61,7 @@ public class Utilisateur implements Serializable {
     } 
     
     // Getters
-
+    
     public int getIdUser() {
         return idUser;
     }
@@ -80,6 +84,15 @@ public class Utilisateur implements Serializable {
     public String getPhotoProfil() {
         return photoProfil;
     }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+    
 
     
 
@@ -110,11 +123,20 @@ public class Utilisateur implements Serializable {
     public void setPhotoProfil(String photoProfil) {
         this.photoProfil = photoProfil;
     }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+    
     
     
     public String afficherTitreDesColonnes() {
         String message = "";
-        message = String.format(" %-10s  %30s %15s %15s %15s %25s", "Id", "Nom", "Prenom", "Email", "Password", "Photo");
+        message = String.format(" %-10s  %30s %15s %15s %15s %25s", "Id", "Nom", "Prenom", "Email", "Password","Bio" , "Photo");
         message+="\n -----------------------------------------------------------------------------------------------------------";
         return message;
     }
@@ -122,11 +144,9 @@ public class Utilisateur implements Serializable {
     @Override
        public String toString() {
        String message = "";
-       message = String.format(" %-10d  %30s %15b %15s %15s %15s %25s ",this.idUser,this.nom ,this.prenom, this.email, this.password, this.photoProfil); 
+       message = String.format(" %-10d  %30s %15b %15s %15s %15s %25s %25s ",this.idUser,this.nom ,this.prenom, this.email, this.password,this.bio , this.photoProfil); 
        return message;
     }
     
-    
-    
-    
+
 }

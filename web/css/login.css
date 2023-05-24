@@ -1,8 +1,9 @@
 
 .login-grid{
+    box-shadow: -5px -5px 10px rgba(255,255,255,0.6), 3px 3px 6px rgba(0,0,0,0.1);
+    font-size: 1.02rem;
     align-self: center;
     margin-left: 30%;
-    margin-top: 10%;
     margin-right: 30%;
     padding: 20px;
     display: flex;
@@ -12,19 +13,13 @@
     padding-left: 40px;
     padding-right: 40px;
     font-size: 25px;
-    background-color: #d6cfb4;
+
 }
-.login-grid>label{
-    background-color: #d6cfb4;
-    color: #202020;
+label{
+    color : black;
 }
-.login-grid>input{
-    background-color: whitesmoke;
-    color: #202020;
-}
-.login-grid>a{
+.boutton{
     text-align: center;
     margin: 20px 30px 10px 30px;
-    border-radius: 5px;
-    color: #202020;
+    
 }

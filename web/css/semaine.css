@@ -6,26 +6,21 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.wrapper-semaine{
-
-    width: fit-content;
-    background-color: antiquewhite;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+.event-section{
+    box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
+    margin-left : 20px;
+    margin-right:10px;
+    width: 100%;
 }
-.wrapper-semaine header{
-    border-bottom: #d6cfb4 1px solid;
+.event-section header{
+
     display: flex;
     align-items: center;
     align-content: center;
     padding: 25px 30px 10px;
     justify-content: space-between;
 }
-header .icons span:hover{
-
-    background: #f2f2f2;
-}
-header .semaine-actuelle{
+header .date{
     text-align: center;
     color : #202020;
     font-size: 1.45rem;
@@ -33,52 +28,118 @@ header .semaine-actuelle{
 }
 .planificateur{
     padding: 20px;
-}
-.planificateur ul{
-
-    display: flex;
+    display : flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    list-style: none;
-    text-align: center;
 }
-.calendar .heures{
-    margin-bottom: 20px;
-}
-.planificateur li{
-    display: inline-block;
+.evenement{
 
-    color: #333;
-    width: calc(95% / 7);
-    font-size: 1.07rem;
+    height : 300px;
+    width: 250px;
 }
-.planificateur .semaine li{
-    cursor: default;
+div > .titre_evenement{
+    color : black;
+    font-size: 30px;
+    border-bottom: 2px solid #d6cfb4
 }
-.planificateur .heures li{
-    border: #d6cfb4 1px solid;
-    width: calc(95% / 7);
+.evenement .contenu{
+    margin : 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.card-list {
+    width: 90%;
+    max-width: 400px;
+}
+
+.card {
+    margin: 10px;
+    box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 1.25rem;
+    position: relative;
+    transition: .15s ease-in;
+}
+.card:hover, .card:focus-within {
+    box-shadow: 0 0 0 2px var(--color-white), 0 10px 60px 0 var(--color-shadow);
+    transform: translateY(-5px);
+}
+
+.card-image {
+    max-width: 100%;
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card-header>a {
+    font-weight: 600;
+    font-size: 1.375rem;
+    line-height: 1.25;
+    padding-right: 1rem;
+    text-decoration: none;
+    will-change: transform;
+}
+card-reader>a:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.icon-button{
+
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .25s ease;
+
     z-index: 1;
     cursor: pointer;
-    position: relative;
-    padding-top: 3px;
-    padding-bottom: 3px;
 }
-header .icons{
 
+.card-footer {
+    margin-top: 1.25rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1.25rem;
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
-header .icons span{
-    height: 38px;
-    width: 38px;
-    margin: 0 1px;
-    cursor: pointer;
-    color: #878787;
-    text-align: center;
-    line-height: 38px;
-    font-size: 1.9rem;
-    user-select: none;
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    color: #787878;
+}
+.card-meta:first-child:after {
+    display: block;
+    content: "";
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
+    background-color: currentcolor;
+    margin-left: .75rem;
+    margin-right: .75rem;
 }
-.icons span:last-child{
-    margin-right: -10px;
+svg {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    margin-right: .25em;
 }

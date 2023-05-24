@@ -11,93 +11,53 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema planner
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `planner` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `planner` DEFAULT CHARACTER SET utf8mb4 ;
 USE `planner` ;
 
 -- -----------------------------------------------------
--- Table `planner`.`Administrateur`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`administrateur` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(20) NOT NULL,
-  `prenom` VARCHAR(20) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `planner`.`Utilisateur`
+-- Table `planner`.`utilisateur`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `planner`.`utilisateurs` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(20) NOT NULL,
-  `prenom` VARCHAR(20) NOT NULL,
+  `nom` VARCHAR(65) NOT NULL,
+  `prenom` VARCHAR(65) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
-  `telephone` VARCHAR(10),
-  `password` VARCHAR(20) NOT NULL,
+  `telephone` VARCHAR(65),
+  `password` VARCHAR(65) NOT NULL,
   `bio` LONGTEXT,
-  `photo` VARCHAR(20),
+  `photo` VARCHAR(255),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4 ;
 
 -- -----------------------------------------------------
--- Table `planner`.`Evenement`
+-- Table `planner`.`evenement`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `planner`.`evenements` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(45) NOT NULL,
-  `lieux` VARCHAR(45) NOT NULL,
+  `nom` VARCHAR(65) NOT NULL,
+  `lieux` VARCHAR(65) NOT NULL,
   `debut` DATE NOT NULL,
-  `fin` date NOT NULL,
+  `fin` DATE NOT NULL,
   `description` LONGTEXT,
-  `photoEvent` VARCHAR(20),
-  `categorie` VARCHAR(50) NOT NULL,
-  `public` BOOLEAN NOT NULL,
+  `photoEvent` VARCHAR(65),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4 ;
 
 -- -----------------------------------------------------
--- Table `planner`.`ToDo`
+-- Table `planner`.`todo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`ToDo` (
+CREATE TABLE IF NOT EXISTS `planner`.`todo` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nom` VARCHAR(45) NULL,
-  `date` VARCHAR(45) NULL,
+  `tache` VARCHAR(255) NOT NULL,
+  `fait` BOOLEAN,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX id_UNIQUE (`id` ASC))
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `planner`.`Organisateur`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`organisateurs` (
-  `id` INT NOT NULL,
-  `id` INT NOT NULL,
-  PRIMARY KEY (`id`, `id`),
-  FOREIGN KEY (`id`) REFERENCES projetsession.utilisateurs (`id`),
-  FOREIGN KEY (`id`) REFERENCES projetsession.evenements (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
-
--- -----------------------------------------------------
--- Table `planner`.`Participant`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `planner`.`participants` (
-  `id` INT NOT NULL,
-  `id` INT NOT NULL,
-  PRIMARY KEY (`id`, `id`),
-  FOREIGN KEY (`id`) REFERENCES projetsession.utilisateurs (`id`),
-  FOREIGN KEY (`id`) REFERENCES projetsession.evenements (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+DEFAULT CHARACTER SET = utf8mb4 ;
 
 
 
