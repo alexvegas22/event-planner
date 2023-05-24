@@ -22,14 +22,14 @@ public class UtilisateurImpDao implements UtilisateurDao {
     private static final String SQL_SELECT_UTILISATEURS = "select * from utilisateurs";
     private static final String SQL_SELECT_UTILISATEUR_PAR_ID = "select * from utilisateurs where id=?";
     private static final String SQL_SELECT_UTILISATEUR_PAR_NOM = "select * from utilisateurs where nom=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where EMAIL=?";
-    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from projetsession.utilisateurs where email = ? and password = ?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where email=?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateurs where email = ? and password = ?";
      
-    private static final String SQL_UPDATE = "update utilisateurs set email =?, password = ? where id = ?";
+    private static final String SQL_UPDATE = "update utilisateurs set email =?, telephone?, password = ?  where id = ?";
    
     private static final String SQL_DELETE = "delete from utilisateurs where id = ?";
     
-    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs(email,nom,prenom,password,photo) value(?,?,?,?,?)";
+    private static final String SQL_INSERT_UTILISATEUR = "insert into utilisateurs (nom, prenom, email, telephone, password, bio,photo) value(?,?,?,?,?,?,?)";
 
     @Override
     public List<Utilisateur> findAll() {
@@ -47,10 +47,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 Utilisateur utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("id"));
-                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photo"));
                 listeUtilisateur.add(utilisateur);
             }
@@ -80,10 +81,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("id"));
-                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
@@ -114,10 +116,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("id"));
-                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
@@ -148,10 +151,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("id"));
-                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
@@ -183,10 +187,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
             while (result.next()) {
                 utilisateur = new Utilisateur();
                 utilisateur.setId(result.getInt("id"));
-                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setNom(result.getString("nom"));
                 utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setEmail(result.getString("email"));
                 utilisateur.setPassword(result.getString("password"));
+                utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photo"));
 
             }
@@ -239,26 +244,34 @@ public class UtilisateurImpDao implements UtilisateurDao {
 
     @Override
     public boolean create(Utilisateur utilisateur) {
-        int nbLign = 0;
         boolean retour = false;
+        int nbLigne = 0;
         PreparedStatement ps;
+
         try {
             ps = ConnexionBD.getConnection().prepareStatement(SQL_INSERT_UTILISATEUR);
-            ps.setString(1, utilisateur.getEmail());
-            ps.setString(2, utilisateur.getNom());
-            ps.setString(3, utilisateur.getPrenom());
-            ps.setString(4, utilisateur.getPassword());
-            ps.setString(5, utilisateur.getPhotoProfil());
-            nbLign = ps.executeUpdate();
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+            //   Insérer les données dans la table parente, utilisateurs
+            ps.setString(1, utilisateur.getNom());
+            ps.setString(2, utilisateur.getPrenom());
+            ps.setString(3, utilisateur.getEmail());
+            ps.setString(4, utilisateur.getTelephone());
+            ps.setString(5, utilisateur.getPassword());
+            ps.setString(6, utilisateur.getBio());
+            ps.setString(7, utilisateur.getPhotoProfil());
+            nbLigne = ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, e);
         }
-         if(nbLign>0){
-                retour = true;
-            }
+
+//		System.out.println("nb ligne " + nbLigne);
+        if (nbLigne > 0) {
+            retour = true;
+        }
         ConnexionBD.closeConnection();
         return retour;
+        
     }
 
     @Override
@@ -271,10 +284,11 @@ public class UtilisateurImpDao implements UtilisateurDao {
 
             ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE);
             ps.setString(1, utilisateur.getEmail());
+            ps.setString(2, utilisateur.getTelephone());
+            ps.setString(3, utilisateur.getPassword());
 
-            ps.setString(2, utilisateur.getPassword());
+            
 
-            ps.setInt(3, utilisateur.getIdUser());
 
             nbLigne = ps.executeUpdate();
 

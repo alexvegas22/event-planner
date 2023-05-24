@@ -1,0 +1,58 @@
+<%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.model.entites.Utilisateur"%>
+<%  
+    List<Utilisateur> listeUtilisateurs = (List<Utilisateur>)request.getAttribute("listeUtilisateurs");
+     Utilisateur  utilisateur = (Utilisateur)request.getAttribute("utilisateur");
+%>
+        <br>
+        <h1>Voici tous les utilisateurs</h1>
+        
+        <br> 
+          <table>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Bio</th>
+      <th>Photo De Profil</th>
+    </tr>
+    
+    <%if(utilisateur!=null) {%>
+       <tr>
+      <td> <%=utilisateur.getIdUser()%> </td>
+     
+      <td> <%=utilisateur.getNom() %> </td>
+     <td> <%=utilisateur.getPrenom() %> </td>
+      <td> <%=utilisateur.getEmail() %> </td>
+      <td> <%=utilisateur.getTelephone()%> </td>
+      <td> <%=utilisateur.getBio()%> </td>
+   
+      <td>
+    <img alt="etu image" src="images/<%=utilisateur.getPhotoProfil()%>" height="42" width="50"/> 
+    </td> 
+       
+     </tr>
+    <% }else { 
+     for(Utilisateur user : listeUtilisateurs){%>
+      <tr>
+      <td> <%=user.getIdUser() %> </td>
+     
+      <td> <%=user.getNom() %> </td>
+     <td> <%=user.getPrenom() %> </td>
+      <td> <%=user.getEmail() %> </td>
+      <td> <%=user.getTelephone() %> </td>
+    
+       <td> <%=user.getBio()%> </td>
+       
+    <td>
+    <img alt="etu image" src="images/<%=user.getPhotoProfil()%>" height="42" width="50"/> 
+    </td> 
+     </tr>
+         
+   <% } } %>
+ </table>

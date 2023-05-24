@@ -7,12 +7,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.wrapper{
-
+.wrapper{   
     width: 450px;
-    background-color: antiquewhite;
-    border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
 }
 .wrapper header{
     border-bottom: #d6cfb4 1px solid;
@@ -21,9 +18,16 @@
     padding: 25px 30px 10px;
     justify-content: space-between;
 }
-header .icons{
+.icons{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
+header button{
+    padding : 0;
+}
+
 header .icons span{
     height: 38px;
     width: 38px;
@@ -33,19 +37,15 @@ header .icons span{
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
-    user-select: none;
-    border-radius: 50%;
+    user-select: none;  
 }
-.icons span:last-child{
-    margin-right: -10px;
-}
-header .icons span:hover{
-    background: #f2f2f2;
-}
+
+
 header .current-date{
     color : #202020;
     font-size: 1.45rem;
     font-weight: 500;
+    
 }
 .calendar{
     padding: 20px;
@@ -92,7 +92,7 @@ header .current-date{
     transform: translate(-50%, -50%);
 }
 .days li.active::before{
-    background: #d6cfb4;
+    background: var(--color-shadow);
 }
 .days li:not(.active):hover::before{
     background: #f2f2f2;
