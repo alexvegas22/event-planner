@@ -13,7 +13,7 @@
         <br>
             <h1>Aucun événement</h1>
             <% } else {
-                 for(Evenement event : listEvent){%>
+                 for(Evenement event : listEvent){
             %>
             <div class="card-list collapsible " >
                 <article class="card">
