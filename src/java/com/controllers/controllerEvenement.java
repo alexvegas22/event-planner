@@ -52,7 +52,7 @@ public class controllerEvenement extends HttpServlet {
             listeEvenements = eventService.afficherLesEvenement();
             request.setAttribute("message", message);
             request.setAttribute("listeEvenements", listeEvenements);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            request.getRequestDispatcher("evenement.jsp").forward(request, response);
             
             
         } 

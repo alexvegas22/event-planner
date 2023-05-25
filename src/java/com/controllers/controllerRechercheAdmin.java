@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class controllerRechercheAdmin extends HttpServlet {
 
     private List<Utilisateur> listeUtilisateurs;
+    List<Utilisateur> listeUserRecherche;
     Utilisateur utilisateur = null;
     UtilisateurService service = new UtilisateurService();
 
@@ -53,7 +54,7 @@ public class controllerRechercheAdmin extends HttpServlet {
         
         //UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
         //EvenementDaoImpl daoEvent = new EvenementDaoImpl(); 
-        ArrayList<Utilisateur> listeUserRecherche = new ArrayList<Utilisateur>();
+        
         ArrayList<Evenement> listeEventRecherche = new ArrayList<Evenement>();
         
         
@@ -65,10 +66,9 @@ public class controllerRechercheAdmin extends HttpServlet {
         request.setAttribute("utilisateur", utilisateur);
         
         
-        
         if (request.getParameter("recherche") == "utilisateurs") {
             
-            utilisateur=(service.chercherUtilisateurParNom("admin"));
+            utilisateur=(service.chercherUtilisateurParNom("*"));
            
             try {
                 int id = Integer.parseInt((String)request.getParameter("barreDeRecherche"));
@@ -87,14 +87,17 @@ public class controllerRechercheAdmin extends HttpServlet {
             } catch (NumberFormatException e) {
                 System.out.println("input is not an int value");
             }
-            request.setAttribute("", listeUserRecherche);
+            utilisateur=(service.chercherUtilisateurParNom("*"));
+            request.setAttribute("utilisateurListe", listeUserRecherche);
             request.setAttribute("utilisateur", utilisateur);
             
         }
         if (request.getParameter("recherche") == "évenéments") {
                System.out.println("evenements");
         }
-
+        listeUserRecherche =(service.afficherLesUtilisateurs());
+            request.setAttribute("utilisateurListe", listeUserRecherche);
+            request.setAttribute("utilisateur", utilisateur);
         request.getRequestDispatcher("administration.jsp").include(request, response);
 
     }

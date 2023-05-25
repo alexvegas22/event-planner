@@ -5,7 +5,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     List<Utilisateur> utilisateurListe = (List<Utilisateur>) request.getAttribute("userRecherche");
-    Utilisateur utilisateurTrouvee = (Utilisateur)request.getAttribute("utilisateur");
+    Utilisateur user = (Utilisateur)request.getAttribute("utilisateur");
 %>
 
 <div class="home-section">
@@ -29,9 +29,7 @@
 
 
 <%if (utilisateurListe != null) {
-%>
-//<%
-  //  for(Utilisateur utilisateurTrouvee : utilisateurListe){%>
+    for(Utilisateur utilisateurTrouvee : utilisateurListe){%>
 <tr>
     <td> <%=utilisateurTrouvee.getIdUser()%> </td>
 
@@ -62,4 +60,35 @@
 
         </form>  </td>
 </tr>
-<% } %>
+<% } } %>
+
+<tr>
+    <td> <%=user.getIdUser()%> </td>
+
+    <td> <%=user.getNom()%> </td>
+    <td> <%=user.getPrenom()%> </td>
+    <td> <%=user.getEmail()%> </td>
+    <td> <%=user.getTelephone()%> </td>
+    <td> <%=user.getBio()%> </td>
+    <td> <%=user.getPassword()%> </td>
+
+
+    <td>
+        <img alt="etu image" src="<%=user.getPhotoProfil()%>"/> 
+    </td>
+
+    <td> <form action="inscription.jsp" method="post">
+            <center>
+                <input type="submit"  value="Supprimer" /> 
+
+            </center>
+
+        </form> </td>
+    <td> <form action="modificationUtilisateur.jsp" method="post">
+            <center>
+                <input type="submit"  value="Modifier" /> 
+
+            </center>
+
+        </form>  </td>
+</tr>
