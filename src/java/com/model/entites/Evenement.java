@@ -2,7 +2,7 @@
 package com.model.entites;
 
 import java.io.Serializable;
-import java.sql.Date;
+
 import java.sql.Timestamp;
 
 
@@ -18,8 +18,8 @@ public class Evenement implements Serializable {
     private String nomEvent;
     private String lieux;
    
-    private Date heureDebut;
-    private Date heureFin;
+    private String heureDebut;
+    private String heureFin;
     private String description;
     
     
@@ -28,7 +28,7 @@ public class Evenement implements Serializable {
     public Evenement() {
     }
 
-    public Evenement(int idUser, String nomEvent,String lieuxEvent, Date heureDebut, Date heureFin, String description) {
+    public Evenement(int idUser, String nomEvent,String lieuxEvent, String heureDebut, String heureFin, String description) {
         this.idUser = idUser;
         this.nomEvent = nomEvent;
         this.lieux = lieuxEvent;
@@ -55,11 +55,11 @@ public class Evenement implements Serializable {
         return lieux;
     }
     
-    public Date getHeureDebut() {
+    public String getHeureDebut() {
         return heureDebut;
     }
 
-    public Date getHeureFin() {
+    public String getHeureFin() {
         return heureFin;
     }
 
@@ -85,11 +85,11 @@ public class Evenement implements Serializable {
         this.lieux = lieux;
     }
 
-    public void setHeureDebut(Date heureDebut) {
+    public void setHeureDebut(String heureDebut) {
         this.heureDebut = heureDebut;
     }
 
-    public void setHeureFin(Date heureFin) {
+    public void setHeureFin(String heureFin) {
         this.heureFin = heureFin;
     }
 

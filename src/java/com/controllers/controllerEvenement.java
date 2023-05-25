@@ -9,7 +9,6 @@ import com.service.EvenementService;
 import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -45,11 +44,7 @@ public class controllerEvenement extends HttpServlet {
         
         String description = request.getParameter("description");
         
-
-        Date d = Date.valueOf(debut);
-        Date f = Date.valueOf(fin);
-        
-        evenement = new Evenement (idUser, nomEvent,lieu, d,f, description);
+        evenement = new Evenement (idUser, nomEvent,lieu, debut,fin, description);
         retour = eventService.ajouterUnEvenement(evenement);
        
         if (retour){
@@ -57,7 +52,7 @@ public class controllerEvenement extends HttpServlet {
             listeEvenements = eventService.afficherLesEvenement();
             request.setAttribute("message", message);
             request.setAttribute("listeEvenements", listeEvenements);
-            request.getRequestDispatcher("evenement.jsp").forward(request, response);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
             
             
         } 

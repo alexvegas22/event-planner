@@ -6,7 +6,6 @@ package com.model.dao;
 
 import com.model.entites.Evenement;
 import com.model.singleton.ConnexionBD;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,8 +49,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
                 listeEvenement.add(evenement);
             }
@@ -82,8 +81,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
 
             }
@@ -116,8 +115,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
                 listeEvenement.add(evenement);
             }
@@ -150,8 +149,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
 
             }
@@ -185,8 +184,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
                 listeEvenement.add(evenement);
             }
@@ -218,8 +217,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
                 listeEvenement.add(evenement);
             }
@@ -252,8 +251,8 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setIdUserEvent(result.getInt("idUser"));
                 evenement.setNomEvent(result.getString("nom"));
                 evenement.setLieux(result.getString("lieux"));
-                evenement.setHeureDebut(result.getDate("debut"));
-                evenement.setHeureFin(result.getDate("fin"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
                 evenement.setDescription(result.getString("description"));
                 listeEvenement.add(evenement);
             }
@@ -314,8 +313,8 @@ public class EvenementDaoImpl implements EvenementDao {
             ps.setInt(1, event.getIdUserEvent());
             ps.setString(2, event.getNomEvent());
             ps.setString(3, event.getLieux());
-            ps.setDate(4, event.getHeureDebut());
-            ps.setDate(5, event.getHeureFin());
+            ps.setString(4, event.getHeureDebut());
+            ps.setString(5, event.getHeureFin());
             ps.setString(6, event.getDescription());
             nbLign = ps.executeUpdate();
            
@@ -345,9 +344,9 @@ public class EvenementDaoImpl implements EvenementDao {
 
             ps.setInt(3, event.getIdEvent());
             
-            ps.setDate( 4, event.getHeureDebut());
+            ps.setString( 4, event.getHeureDebut());
             
-            ps.setDate(5, event.getHeureFin());
+            ps.setString(5, event.getHeureFin());
             
             ps.setString(6, event.getDescription());
 

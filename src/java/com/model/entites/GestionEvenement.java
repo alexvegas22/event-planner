@@ -1,7 +1,6 @@
 
 package com.model.entites;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -77,11 +76,11 @@ public class GestionEvenement {
               
               System.out.println("Entrez l'heure du début ");
               String heureD = lectureClavier.next();
-              Date heureDebut = Date.valueOf(heureD);
+              String heureDebut = (heureD);
               
               System.out.println("Entrez l'heure de fin");
               String heureF = lectureClavier.next();
-              Date heureFin = Date.valueOf(heureF);
+              String heureFin = (heureF);
               
               System.out.println("Entrez la description");
               String description = lectureClavier.next();
@@ -131,9 +130,9 @@ public class GestionEvenement {
         return eventTrouve;
     }
 
-    public List<Evenement> chercherEvenementParDateDebut(String heureD) {
+    public List<Evenement> chercherEvenementParStringDebut(String heureD) {
         
-        Date heureDebut = Date.valueOf(heureD);
+        String heureDebut = heureD;
         List<Evenement> eventTrouve = null;
         for (Evenement event : listeEvenements) {
             if (event.getHeureDebut().equals(heureDebut)) {
@@ -143,9 +142,9 @@ public class GestionEvenement {
         return eventTrouve;
     }
     
-    public List<Evenement> chercherEvenementParDateFin(String heureF) {
+    public List<Evenement> chercherEvenementParStringFin(String heureF) {
         
-        Date heureFin = Date.valueOf(heureF);
+        String heureFin = (heureF);
         List<Evenement> eventTrouve = null;
         for (Evenement event : listeEvenements) {
             if (event.getHeureDebut().equals(heureFin)) {
