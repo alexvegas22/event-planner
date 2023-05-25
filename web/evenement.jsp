@@ -17,7 +17,7 @@
         <br>
         <h1>Voici Tous les évènements existants</h1>
         <% if( request.getAttribute("message")!=null) { %>
-         <center><b><font color=green> <%=request.getAttribute("message")  %></font><b></center>
+         <center><b><font color=green> <%=request.getAttribute("message")%></font><b></center>
         <%}%>
         <br> 
           <table style="width:80%">
