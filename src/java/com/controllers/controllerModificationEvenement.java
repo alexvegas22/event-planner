@@ -28,20 +28,21 @@ public class controllerModificationEvenement extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String id = request.getParameter("id");
-      
         
+        String idUser = request.getParameter("idUser");
         String lieu = request.getParameter("lieu");
         String debut = request.getParameter("debut");
         
         String fin = request.getParameter("fin");
 
-        int userId = Integer.parseInt(id);
-        evenement = eventService.chercherEvenementParID(userId);
+        int idEvent = Integer.parseInt(id);
+        int userId = Integer.parseInt(idUser);
+        evenement = eventService.chercherEvenementParID(idEvent);
         
         Date d = Date.valueOf(debut);
         Date f = Date.valueOf(fin);
 
- 
+        evenement.setIdUserEvent(userId);
         evenement.setLieux(lieu);
         evenement.setHeureDebut(d);
         evenement.setHeureFin(f);

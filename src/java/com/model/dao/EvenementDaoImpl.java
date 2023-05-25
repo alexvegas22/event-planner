@@ -96,7 +96,8 @@ public class EvenementDaoImpl implements EvenementDao {
         return evenement;
     }
     @Override
-    public Evenement findByIdUser(int id) {
+    public List<Evenement> findByIdUser(int id) {
+        List<Evenement> listeEvenement = null;
         Evenement evenement = null;
         try {
             
@@ -108,7 +109,7 @@ public class EvenementDaoImpl implements EvenementDao {
 
      
             ResultSet result = ps.executeQuery();
-
+            listeEvenement = new ArrayList();
             while (result.next()) {
                 evenement = new Evenement();
                 evenement.setIdEvent(result.getInt("id"));
@@ -118,7 +119,7 @@ public class EvenementDaoImpl implements EvenementDao {
                 evenement.setHeureDebut(result.getDate("debut"));
                 evenement.setHeureFin(result.getDate("fin"));
                 evenement.setDescription(result.getString("description"));
-
+                listeEvenement.add(evenement);
             }
             ConnexionBD.closeConnection();
 
@@ -126,7 +127,7 @@ public class EvenementDaoImpl implements EvenementDao {
             Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return evenement;
+        return listeEvenement;
     }
     
     @Override

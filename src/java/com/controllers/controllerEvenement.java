@@ -16,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 public class controllerEvenement extends HttpServlet {
 
     private List<Evenement> listeEvenements;
+    UtilisateurService userService = new UtilisateurService();
     EvenementService eventService = new EvenementService();
     Evenement evenement = null;
     boolean retour = false;
@@ -31,11 +33,13 @@ public class controllerEvenement extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("idUser"));
-        String nom = request.getParameter("nom");
+        
+        String nomEvent = request.getParameter("nom");
         String lieu = request.getParameter("lieu");
-       
-
+        
+        
+        String nom = (String) request.getSession().getAttribute("nom");
+        int idUser = userService.chercherUtilisateurParNom(nom).getIdUser();
         String debut = request.getParameter("debut");
         String fin = request.getParameter("fin");
         
@@ -44,7 +48,8 @@ public class controllerEvenement extends HttpServlet {
 
         Date d = Date.valueOf(debut);
         Date f = Date.valueOf(fin);
-        evenement = new Evenement (id, nom,lieu, d,f, description);
+        
+        evenement = new Evenement (idUser, nomEvent,lieu, d,f, description);
         retour = eventService.ajouterUnEvenement(evenement);
        
         if (retour){

@@ -19,7 +19,6 @@ a:hover{
   justify-items: start;
   padding: 48px 64px;
   border-radius: 16px;
-  background: var(--color-white);
   box-shadow:
     4px 4px 4px 0px #d1d9e6 inset,
     -4px -4px 4px 0px #ffffff inset;

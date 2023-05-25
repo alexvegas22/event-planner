@@ -1,4 +1,16 @@
-
+.plus{
+    padding: 5px;
+    
+    height: 40px;
+    width: 40px;
+    text-align: start;
+}
+.annuler{
+    align-self: start;
+    justify-self: start;
+    position: relative;
+    left:0
+}
 .home-section{
     margin: 20px;
     display : flex;

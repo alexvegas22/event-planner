@@ -28,9 +28,9 @@ public class EvenementService {
         return evenement;
     }
     
-    public Evenement chercherEvenementParUserID(int id) {
-       evenement = dao.findByIdUser(id);
-        return evenement;
+    public List<Evenement> chercherEvenementParUserID(int id) {
+       listeEvenements = dao.findByIdUser(id);
+        return listeEvenements;
     }
     
     public Evenement chercherUnEvenementParNom(String nom) {

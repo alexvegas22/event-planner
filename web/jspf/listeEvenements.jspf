@@ -25,7 +25,8 @@
         <br> 
           <table>
     <tr>
-      <th>Id</th>
+        
+      <th>Id User</th>
       <th>Nom</th>
       <th>Lieu</th>
       <th>Date</th>
@@ -35,7 +36,8 @@
     </tr>
     <%for(Evenement event : listeEvenements){%>
       <tr>
-      <td> <%=event.getIdEvent() %> </td>
+          
+      <td> <%=event.getIdUserEvent() %> </td>
       <td> <%=event.getNomEvent() %> </td>
         <td> <%=event.getLieux() %> </td>
       <td> <%=event.getHeureDebut() %> </td>

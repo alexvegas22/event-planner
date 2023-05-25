@@ -3,7 +3,7 @@ package com.model.entites;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Time;
+import java.sql.Timestamp;
 
 
 /**
@@ -28,10 +28,6 @@ public class Evenement implements Serializable {
     public Evenement() {
     }
 
-    public Evenement(int idEvent) {
-        this.idEvent = idEvent;
-    }
-
     public Evenement(int idUser, String nomEvent,String lieuxEvent, Date heureDebut, Date heureFin, String description) {
         this.idUser = idUser;
         this.nomEvent = nomEvent;
@@ -40,18 +36,7 @@ public class Evenement implements Serializable {
         this.heureFin = heureFin;
         this.description = description;
     }
-    
-    
 
-    public Evenement(int idEvent, int idUser, String nomEvent, String lieux, Date heureDebut, Date heureFin, String description) {
-        this.idEvent = idEvent;
-        this.idUser = idUser;
-        this.nomEvent = nomEvent;
-        this.lieux = lieux;
-        this.heureDebut = heureDebut;
-        this.heureFin = heureFin;
-        this.description = description;
-    }
     
     // Getters
 

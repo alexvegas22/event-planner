@@ -1,10 +1,13 @@
 package com.controllers;
 
+import com.model.entites.Evenement;
 import com.model.entites.Utilisateur;
+import com.service.EvenementService;
 import com.service.UtilisateurService;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -18,11 +21,17 @@ public class controllerConnexion extends HttpServlet {
     private List<Utilisateur> listeUtilisateurs;
     Utilisateur utilisateur = null;
     UtilisateurService service = new UtilisateurService();
+
+    List<Evenement> listeEvenementUser;
+    Evenement evenement = null;
+    EvenementService eventService = new EvenementService();
+
     String url = "index.jsp";
 
     @Override
     public void init() throws ServletException {
         listeUtilisateurs = service.afficherLesUtilisateurs();
+
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -34,22 +43,43 @@ public class controllerConnexion extends HttpServlet {
         System.out.println("email " + email);
         String password = request.getParameter("psw");
         utilisateur = service.verifierEmailMotDePasse(email, password);
-
+        String sauvegarde = request.getParameter("sauvegarde");
         if (utilisateur != null) {
-
+            listeEvenementUser =eventService.chercherEvenementParUserID(utilisateur.getIdUser());
+            
+            request.setAttribute("userId", utilisateur.getIdUser());
+            
             connexion = true;
             HttpSession session = request.getSession(true);
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
+            
+            ((HttpSession) session).setAttribute("userId", utilisateur.getIdUser());
             session.setAttribute("prenom", utilisateur.getPrenom());
+
+            request.setAttribute("listeEvenement", listeEvenementUser);
+
+            
             request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-
+            
             url = "home.jsp";
             if (email.equals("admin@admin.com")) {
 
                 url = "administration.jsp";
             }
         }
+
+        if (sauvegarde != null) {
+            if (sauvegarde.equals("yes")) {
+                Cookie monCookie = new Cookie("email", email);
+                Cookie passwordCookie = new Cookie("password", password);
+                System.out.println("ajout des cookies");
+                monCookie.setMaxAge(60 * 60);
+                response.addCookie(monCookie);
+                response.addCookie(passwordCookie);
+            }
+        }
+
         if (!connexion) {
             request.setAttribute("invalide", "L'email ou mot de passe est invalide");
         }
