@@ -19,48 +19,51 @@
         <link rel="stylesheet" href="css/index.css" type="text/css"/>
     </head>
     <body>
-                <div>
-                  <div>
-                      <h2 align="center">Modification des informations</h2><br>
+        <div>
+            <div>
+                <h2 align="center">Modification des informations</h2>
                 <p align="center"> Nom de l'abonné :<strong><%=(utilisateur != null ? utilisateur.getNom() : "")%> </strong> <strong><%=(utilisateur != null ? utilisateur.getPrenom() : "")%> </strong> </p>
-
             </div>
-                <form id="signupForm" method="post" 
-                      action="controllerModificationUtilisateur">
+                <div class ="formulaireModifUser">
+                <form id="signupForm" method="get" action="controllerModificationUtilisateur">
+                    <div class="col-sm-5">
+                        <input type="hidden" class="form-control" id="id" name="id"  hidden=""value="<%=(utilisateur != null ? utilisateur.getIdUser() : "")%>" />
+                    </div>
                     <div>
-                     
-                        <div>
-                            <input type="hidden"  id="id"
-                                   name="id"  hidden="" value="<%=(utilisateur != null ? utilisateur.getIdUser() : "")%>" />
-                        </div>
-                    </div>
-            <div >
-                        <label  for="email">Email de l'abonné :</label>
+                        <label  for="nom">Nom :</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" id="email"
-                                   name="email" value="<%=(utilisateur != null ? utilisateur.getEmail() : "")%>" />
+                            <input type="text" class="form-control" id="nom" name="nom" value="<%=(utilisateur != null ? utilisateur.getNom(): "")%>" />
                         </div>
                     </div>
-                  
-                    <div >
+                    <div>
+                        <label  for="prenom">Prénom :</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="prenom" name="prenom" value="<%=(utilisateur != null ? utilisateur.getPrenom(): "")%>" />
+                        </div>
+                    </div>
+                    <div>
+                        <label  for="email">Email :</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="email" name="email" value="<%=(utilisateur != null ? utilisateur.getEmail() : "")%>" />
+                        </div>
+                    </div>
+                    <div>
+                        <label  for="telephone">Téléphone :</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" id="telephone" name="telephone" value="<%=(utilisateur != null ? utilisateur.getTelephone(): "")%>" />
+                        </div>
+                    </div>
+                    <div>
                         <label  for="password">Mot de passe :</label>
                         <div class="col-sm-5">
-                          
-                             <input type="password"  id="password"
-                                   name="password" value="<%=(utilisateur != null ? utilisateur.getPassword(): "")%>" />
+                            <input type="password"  id="password" name="password" value="<%=(utilisateur != null ? utilisateur.getPassword(): "")%>" />
                         </div>
                     </div>
-
                     <div >
-                        <div >
-
-                             
-                                  <input type="submit"   
-                                   value="ModificationUtilisateur"  id="submit"  />
-
-                        </div>
+                        <button class="boutton" type='submit'> Modifier le profil</button>
                     </div>
                 </form>
+            </div>
             </div>
     </body>
 </html>

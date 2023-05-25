@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author djeai
  */
-public class controllerModificationUtilisateur extends HttpServlet {
+public class controllerProfil extends HttpServlet {
 
     private List<Utilisateur> listeUtilisateurs;
     UtilisateurService utilisateurService = new UtilisateurService();
@@ -33,6 +33,8 @@ public class controllerModificationUtilisateur extends HttpServlet {
             String prenom = request.getParameter("prenom");
             String email = request.getParameter("email");
             String telephone = request.getParameter("telephone");
+            String bio = request.getParameter("bio");
+            String photo = request.getParameter("photo");
             String id = request.getParameter("id");
             String password = request.getParameter("password");
             //int userId = Integer.parseInt(id);
@@ -42,6 +44,8 @@ public class controllerModificationUtilisateur extends HttpServlet {
             utilisateur.setPrenom(prenom);
             utilisateur.setEmail(email);
             utilisateur.setTelephone(telephone);
+            utilisateur.setBio(bio);
+            utilisateur.setPhotoProfil(photo);
             utilisateur.setPassword(password);
 
             retour = utilisateurService.modifierUnUtilisateur(utilisateur);
@@ -51,7 +55,7 @@ public class controllerModificationUtilisateur extends HttpServlet {
                 request.setAttribute("message", message);
                 request.setAttribute("listeUtilisateurs", listeUtilisateurs);
                 //request.getRequestDispatcher("administration.jsp").forward(request, response);
-                request.getRequestDispatcher("adminstration.jsp").forward(request, response);
+                request.getRequestDispatcher("profil.jsp").forward(request, response);
             }
 
         }
