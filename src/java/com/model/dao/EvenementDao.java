@@ -14,6 +14,7 @@ import java.util.List;
 public interface EvenementDao {
     List<Evenement> findAll();
     Evenement findById(int id);
+    Evenement findByIdUser(int id);
     Evenement findByName(String nom);
     List<Evenement> findByHeureDebut(String heureD);
     List<Evenement> findByHeureFin(String heureF);

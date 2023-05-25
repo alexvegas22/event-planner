@@ -21,17 +21,17 @@
     <body>
                 <div>
                   <div>
-                <h2 align="center">Modification des informations</h2>
+                      <h2 align="center">Modification des informations</h2><br>
                 <p align="center"> Nom de l'abonné :<strong><%=(utilisateur != null ? utilisateur.getNom() : "")%> </strong> <strong><%=(utilisateur != null ? utilisateur.getPrenom() : "")%> </strong> </p>
 
             </div>
                 <form id="signupForm" method="post" 
-                      action="modificationUtilisateurController">
+                      action="controllerModificationUtilisateur">
                     <div>
                      
                         <div>
                             <input type="hidden"  id="id"
-                                   name="id"  hidden=""value="<%=(utilisateur != null ? utilisateur.getIdUser() : "")%>" />
+                                   name="id"  hidden="" value="<%=(utilisateur != null ? utilisateur.getIdUser() : "")%>" />
                         </div>
                     </div>
             <div >

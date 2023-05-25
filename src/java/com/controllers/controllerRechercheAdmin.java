@@ -1,28 +1,43 @@
 package com.controllers;
 
 import com.model.dao.UtilisateurImpDao;
+import com.model.dao.EvenementDaoImpl;
+import com.model.entites.Evenement;
 import com.model.entites.Utilisateur;
+import com.service.EvenementService;
 import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 /**
  *
  * @author alexr
  */
 public class controllerRechercheAdmin extends HttpServlet {
+
     private List<Utilisateur> listeUtilisateurs;
     Utilisateur utilisateur = null;
-        UtilisateurService service = new UtilisateurService();
-        
+    UtilisateurService service = new UtilisateurService();
+
+    private List<Evenement> listeEvenements;
+    EvenementService eventService = new EvenementService();
+    Evenement evenement = null;
+    
+    boolean retour = false;
+
     @Override
-    public void init() throws ServletException{
-        listeUtilisateurs =  service.afficherLesUtilisateurs();
+    public void init() throws ServletException {
+        listeUtilisateurs = service.afficherLesUtilisateurs();
+        listeEvenements = eventService.afficherLesEvenement();
+        
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,12 +51,52 @@ public class controllerRechercheAdmin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        //UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
+        //EvenementDaoImpl daoEvent = new EvenementDaoImpl(); 
+        ArrayList<Utilisateur> listeUserRecherche = new ArrayList<Utilisateur>();
+        ArrayList<Evenement> listeEventRecherche = new ArrayList<Evenement>();
         
+        
+        request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+        request.setAttribute("listeEvenements", listeEvenements);
+        
+   
+        utilisateur = service.chercherUtilisateurParID(1);
         request.setAttribute("utilisateur", utilisateur);
-            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-        request.setAttribute("recherche", request.getAttribute("recherche"));
-        request.getRequestDispatcher("administration.jsp").include(request, response);
         
+        
+        
+        if (request.getParameter("recherche") == "utilisateurs") {
+            
+            utilisateur=(service.chercherUtilisateurParNom("admin"));
+           
+            try {
+                int id = Integer.parseInt((String)request.getParameter("barreDeRecherche"));
+                utilisateur = (service.chercherUtilisateurParID(id));
+                
+            } catch (NumberFormatException e) {
+                System.out.println("input is not an int value");
+            }
+            try {
+                 utilisateur=(service.chercherUtilisateurParNom((String)request.getParameter("barreDeRecherche")));
+            } catch (NumberFormatException e) {
+                System.out.println("aucun utilisateur avec ce nom");
+            }
+            try {
+                 listeUserRecherche.add(service.chercherUtilisateurParEmail((String)request.getParameter("barreDeRecherche")));
+            } catch (NumberFormatException e) {
+                System.out.println("input is not an int value");
+            }
+            request.setAttribute("", listeUserRecherche);
+            request.setAttribute("utilisateur", utilisateur);
+            
+        }
+        if (request.getParameter("recherche") == "évenéments") {
+               System.out.println("evenements");
+        }
+
+        request.getRequestDispatcher("administration.jsp").include(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

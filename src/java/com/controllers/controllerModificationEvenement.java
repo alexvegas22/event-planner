@@ -5,6 +5,7 @@ import com.model.entites.Evenement;
 import com.service.EvenementService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -37,8 +38,8 @@ public class controllerModificationEvenement extends HttpServlet {
         int userId = Integer.parseInt(id);
         evenement = eventService.chercherEvenementParID(userId);
         
-        Time d = Time.valueOf(debut);
-        Time f = Time.valueOf(fin);
+        Date d = Date.valueOf(debut);
+        Date f = Date.valueOf(fin);
 
  
         evenement.setLieux(lieu);

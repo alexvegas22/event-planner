@@ -9,6 +9,7 @@ import com.service.EvenementService;
 import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -30,6 +31,7 @@ public class controllerEvenement extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        int id = Integer.parseInt(request.getParameter("idUser"));
         String nom = request.getParameter("nom");
         String lieu = request.getParameter("lieu");
        
@@ -40,9 +42,9 @@ public class controllerEvenement extends HttpServlet {
         String description = request.getParameter("description");
         
 
-        Time d = Time.valueOf(debut);
-        Time f = Time.valueOf(fin);
-        evenement = new Evenement (nom,lieu, d,f, description);
+        Date d = Date.valueOf(debut);
+        Date f = Date.valueOf(fin);
+        evenement = new Evenement (id, nom,lieu, d,f, description);
         retour = eventService.ajouterUnEvenement(evenement);
        
         if (retour){

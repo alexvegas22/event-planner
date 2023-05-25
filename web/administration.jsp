@@ -3,7 +3,6 @@
 <%@page import="com.model.entites.Utilisateur"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.model.entites.Utilisateur"%>
 <!doctype html>
@@ -30,42 +29,44 @@
                 </ul>
             </nav>
         </header>
-        <div class='search'>
-            <div class="radiogroup" id="recherche" name='recherche'>
-                <div class="wrapper">
-                    <input class="state" type="radio" name="recherche" id="utilisateurs" value="utilisateurs">
-                    <label class="label" for="utilisateurs">
-                        <div class="indicator"></div>
-                        <span class="text">Utilisateurs</span>
-                    </label>
-                </div>
-                <div class="wrapper">
-                    <input class="state" type="radio" name="recherche" id="evenements" value="événements">
-                    <label class="label" for="evenements">
-                        <div class="indicator"></div>
-                        <span class="text">Événements</span>
-                    </label>
-                </div>
-            </div>
 
+        <div class='search'>
             <form  method="get" action="controllerRechercheAdmin">
+                <div class="radiogroup">
+                    <div class="wrapper">
+                        <input class="state" type="radio" name="recherche" id="utilisateurs" value="utilisateurs" checked >
+                        <label class="label" for="utilisateurs">
+                            <div class="indicator"></div>
+                            <span class="text">Utilisateurs</span>
+                        </label>
+                    </div>
+                    <div class="wrapper">
+                        <input class="state" type="radio" name="recherche" id="evenements" value="evenements" >
+                        <label class="label" for="evenements">
+                            <div class="indicator"></div>
+                            <span class="text">Événements</span>
+                        </label>
+                    </div>
+                </div>
                 <input  type="search" placeholder="Rechercher " aria-label="Search" name="barreDeRecherche"> <br><br>
                 <button  type="submit">Rechercher </button>
             </form>
             <div class="wrapper">
                 <form action="controllerRechercheAdmin">
-                    <input type="hidden" name="recherche" id="allUtilisateurs" value="allUtilisateurs">
+                    <input type="hidden" name="afficher" id="allUtilisateurs" value="allUtilisateurs">
                     <button>Afficher tous les utilisateurs</button>
                 </form>
                 <br>
                 <form action="controllerRechercheAdmin">
-                    <input type="hidden" name="recherche"  id="allEvenements" value="allEvenements">
+                    <input type="hidden" name="afficher"  id="allEvenements" value="allEvenements">
                     <button>Afficher tous les événements</button>
                 </form>
             </div>
         </div>
-        <c:set var="message" value='${param.recherche}' />
+        <c:set var="message" value='${param.afficher}' />
+
         <c:set var="bdr" value='${param.barreDeRecherche}' />
+
         <c:choose>
             <c:when test = "${message == 'allEvenements'}">
                 <%@include file="jspf/listeEvenements.jspf" %>

@@ -1,7 +1,7 @@
 
 package com.model.entites;
 
-import java.sql.Time;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -77,11 +77,11 @@ public class GestionEvenement {
               
               System.out.println("Entrez l'heure du début ");
               String heureD = lectureClavier.next();
-              Time heureDebut = Time.valueOf(heureD);
+              Date heureDebut = Date.valueOf(heureD);
               
               System.out.println("Entrez l'heure de fin");
               String heureF = lectureClavier.next();
-              Time heureFin = Time.valueOf(heureF);
+              Date heureFin = Date.valueOf(heureF);
               
               System.out.println("Entrez la description");
               String description = lectureClavier.next();
@@ -119,38 +119,37 @@ public class GestionEvenement {
         return eventTrouve;
     }
 
-    public Evenement chercherEvenementParNom(String nom) {
+    public List<Evenement> chercherEvenementParNom(String nom) {
 
-        Evenement eventTrouve = null;
+        List<Evenement> eventTrouve = null;
         for (Evenement event : listeEvenements) {
             if (event.getNomEvent().toLowerCase().equals(nom.toLowerCase())) {
-                eventTrouve = event;
+                eventTrouve.add(event);
 
             }
         }
         return eventTrouve;
     }
 
-    public Evenement chercherEvenementParDateDebut(String heureD) {
+    public List<Evenement> chercherEvenementParDateDebut(String heureD) {
         
-        Time heureDebut = Time.valueOf(heureD);
-        Evenement eventTrouve = null;
+        Date heureDebut = Date.valueOf(heureD);
+        List<Evenement> eventTrouve = null;
         for (Evenement event : listeEvenements) {
             if (event.getHeureDebut().equals(heureDebut)) {
-                eventTrouve = event;
-
+                eventTrouve.add(event) ;
             }
         }
         return eventTrouve;
     }
     
-    public Evenement chercherEvenementParDateFin(String heureF) {
+    public List<Evenement> chercherEvenementParDateFin(String heureF) {
         
-        Time heureFin = Time.valueOf(heureF);
-        Evenement eventTrouve = null;
+        Date heureFin = Date.valueOf(heureF);
+        List<Evenement> eventTrouve = null;
         for (Evenement event : listeEvenements) {
             if (event.getHeureDebut().equals(heureFin)) {
-                eventTrouve = event;
+                eventTrouve.add(event);
 
             }
         }
@@ -158,11 +157,11 @@ public class GestionEvenement {
     }
     
     
-    public Evenement chercherEvenementParLieux(String lieux){
-        Evenement eventTrouve = null;
+    public List<Evenement> chercherEvenementParLieux(String lieux){
+        List<Evenement> eventTrouve = null;
         for (Evenement event : listeEvenements) {
             if (event.getLieux().toLowerCase().equals(lieux.toLowerCase())) {
-                eventTrouve = event;
+                eventTrouve.add(event) ;
 
             }
         }

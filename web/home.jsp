@@ -20,7 +20,7 @@
     <body>
         <%@ include file="jspf/header.jspf" %>  
         <div class="home-section">
-           <%@ include file="jspf/semaine.jspf" %>  
+           <%@ include file="jspf/evenement.jspf" %>  
            <%@ include file="jspf/calendrier.jspf" %> 
         </div>
     </body>

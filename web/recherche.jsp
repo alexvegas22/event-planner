@@ -12,7 +12,7 @@
  
     <body>
           <%@ include file="jspf/header.jspf" %> 
-        <div class="home-section"><h1>Résultats pour : <p id='recherche'><%= request.getParameter("search") %> </p></h1>
+        <div class="home-section"><h1>Résultats pour : <%= request.getParameter("search") %> </h1>
         
         </div>
     </body>

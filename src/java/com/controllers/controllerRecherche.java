@@ -33,8 +33,15 @@ public class controllerRecherche extends HttpServlet {
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+         UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
+        //Initialisation user
+        Utilisateur userRecherche = null; 
+        if (request.getParameter("barreDeRecherche")!=null){
+            userRecherche = daoUser.findByName(request.getParameter("barreDeRecherche")); 
+            request.setAttribute("userRecherche", userRecherche);
+        }
         
-        request.getRequestDispatcher("recherche.jsp").include(request, response);
+        request.getRequestDispatcher("administration.jsp").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

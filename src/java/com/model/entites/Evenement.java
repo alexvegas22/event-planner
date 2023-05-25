@@ -14,11 +14,12 @@ public class Evenement implements Serializable {
     
     // Déclaration des attributs
     private int idEvent;
+    private int idUser;
     private String nomEvent;
     private String lieux;
-    private Date date;
-    private Time heureDebut;
-    private Time heureFin;
+   
+    private Date heureDebut;
+    private Date heureFin;
     private String description;
     
     
@@ -31,7 +32,8 @@ public class Evenement implements Serializable {
         this.idEvent = idEvent;
     }
 
-    public Evenement(String nomEvent,String lieuxEvent, Time heureDebut, Time heureFin, String description) {
+    public Evenement(int idUser, String nomEvent,String lieuxEvent, Date heureDebut, Date heureFin, String description) {
+        this.idUser = idUser;
         this.nomEvent = nomEvent;
         this.lieux = lieuxEvent;
         this.heureDebut = heureDebut;
@@ -41,8 +43,9 @@ public class Evenement implements Serializable {
     
     
 
-    public Evenement(int idEvent, String nomEvent, String lieux, Time heureDebut, Time heureFin, String description) {
+    public Evenement(int idEvent, int idUser, String nomEvent, String lieux, Date heureDebut, Date heureFin, String description) {
         this.idEvent = idEvent;
+        this.idUser = idUser;
         this.nomEvent = nomEvent;
         this.lieux = lieux;
         this.heureDebut = heureDebut;
@@ -55,6 +58,9 @@ public class Evenement implements Serializable {
     public int getIdEvent() {
         return idEvent;
     }
+    public int getIdUserEvent() {
+        return idUser;
+    }
 
     public String getNomEvent() {
         return nomEvent;
@@ -63,12 +69,12 @@ public class Evenement implements Serializable {
     public String getLieux() {
         return lieux;
     }
-
-    public Time getHeureDebut() {
+    
+    public Date getHeureDebut() {
         return heureDebut;
     }
 
-    public Time getHeureFin() {
+    public Date getHeureFin() {
         return heureFin;
     }
 
@@ -82,6 +88,9 @@ public class Evenement implements Serializable {
     public void setIdEvent(int idEvent) {
         this.idEvent = idEvent;
     }
+    public void setIdUserEvent(int idUser) {
+        this.idUser = idUser;
+    }
 
     public void setNomEvent(String nomEvent) {
         this.nomEvent = nomEvent;
@@ -91,11 +100,11 @@ public class Evenement implements Serializable {
         this.lieux = lieux;
     }
 
-    public void setHeureDebut(Time heureDebut) {
+    public void setHeureDebut(Date heureDebut) {
         this.heureDebut = heureDebut;
     }
 
-    public void setHeureFin(Time heureFin) {
+    public void setHeureFin(Date heureFin) {
         this.heureFin = heureFin;
     }
 
@@ -105,7 +114,7 @@ public class Evenement implements Serializable {
     
     public String afficherTitreDesColonnes() {
         String message = "";
-        message = String.format(" %-10s  %30s %15s %15s %15s %45s", "Id", "Nom", "Lieux", "Email", "HeureDebut", "HeureFin" , "Description");
+        message = String.format(" %-10s  %30s %15s %15s %15s %15s %45s", "Id", "IdUser", "Nom", "Lieux", "Email", "HeureDebut", "HeureFin" , "Description");
         message+="\n ----------------------------------------------------------------------------------------------------------------------------";
         return message;
     }
@@ -113,9 +122,8 @@ public class Evenement implements Serializable {
     @Override
        public String toString() {
        String message = "";
-       message = String.format(" %-10d  %30s %15b %15s %15s %15s %45s ",this.idEvent,this.nomEvent ,this.lieux, this.heureDebut, this.heureFin, this.description); 
+       message = String.format(" %-10d  %30s %15b %15s %15s %15s %45s ",this.idEvent,this.idUser, this.nomEvent ,this.lieux, this.heureDebut, this.heureFin, this.description); 
        return message;
-    }
-    
+    }    
     
 }

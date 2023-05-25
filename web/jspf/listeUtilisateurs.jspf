@@ -22,22 +22,8 @@
       <th>Photo De Profil</th>
     </tr>
     
-    <%if(utilisateur!=null) {%>
-       <tr>
-      <td> <%=utilisateur.getIdUser()%> </td>
-     
-      <td> <%=utilisateur.getNom() %> </td>
-     <td> <%=utilisateur.getPrenom() %> </td>
-      <td> <%=utilisateur.getEmail() %> </td>
-      <td> <%=utilisateur.getTelephone()%> </td>
-      <td> <%=utilisateur.getBio()%> </td>
-   
-      <td>
-    <img alt="etu image" src="images/<%=utilisateur.getPhotoProfil()%>" height="42" width="50"/> 
-    </td> 
-       
-     </tr>
-    <% }else { 
+    
+    <% 
      for(Utilisateur user : listeUtilisateurs){%>
       <tr>
       <td> <%=user.getIdUser() %> </td>
@@ -50,9 +36,9 @@
        <td> <%=user.getBio()%> </td>
        
     <td>
-    <img alt="etu image" src="images/<%=user.getPhotoProfil()%>" height="42" width="50"/> 
+    <img alt="etu image" src="<%=user.getPhotoProfil()%>"/> 
     </td> 
      </tr>
          
-   <% } } %>
+   <% }  %>
  </table>

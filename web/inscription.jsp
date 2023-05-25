@@ -42,7 +42,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             
             <label  class="col-sm-4 control-label" for="photo">Photo : </label>
                               
-                            <input type="file"
+                            <input type="text"
                                    name="photo" id="photo" title ="La photo est obligatoire"/> <br>
                         
                          

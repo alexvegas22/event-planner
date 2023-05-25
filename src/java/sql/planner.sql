@@ -35,7 +35,8 @@ DEFAULT CHARACTER SET = utf8mb4 ;
 -- Table `planner`.`evenement`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `planner`.`evenements` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+`id` INT NOT NULL auto_increment,
+  `idUser` INT NOT NULL,
   `nom` VARCHAR(65) NOT NULL,
   `lieux` VARCHAR(65) NOT NULL,
   `debut` DATE NOT NULL,
