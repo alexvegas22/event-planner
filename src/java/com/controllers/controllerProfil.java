@@ -27,8 +27,6 @@ public class controllerProfil extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-            response.setContentType("text/html;charset=UTF-8");
-
             String nom = request.getParameter("nom");
             String prenom = request.getParameter("prenom");
             String email = request.getParameter("email");
@@ -36,7 +34,7 @@ public class controllerProfil extends HttpServlet {
             String bio = request.getParameter("bio");
             String photo = request.getParameter("photo");
             String id = request.getParameter("id");
-            String password = request.getParameter("password");
+            String password = request.getParameter("psw");
             //int userId = Integer.parseInt(id);
 
             //utilisateur = utilisateurService.chercherUtilisateurParID(userId);
@@ -55,7 +53,7 @@ public class controllerProfil extends HttpServlet {
                 request.setAttribute("message", message);
                 request.setAttribute("listeUtilisateurs", listeUtilisateurs);
                 //request.getRequestDispatcher("administration.jsp").forward(request, response);
-                request.getRequestDispatcher("profil.jsp").forward(request, response);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
             }
 
         }
