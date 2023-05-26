@@ -41,7 +41,7 @@
 					},
 					email: { required : "Veuillez saisir un email "
                                                 
-                                              },
+                                              }
 			              
 				},
                     errorElement:"em"
