@@ -31,7 +31,7 @@
         </header>
 
         <div class='search'>
-            <form  method="get" action="controllerRechercheAdmin">
+            <form  method="get" action="controllerRecherche">
                 <div class="radiogroup">
                     <div class="wrapper">
                         <input class="state" type="radio" name="recherche" id="utilisateurs" value="utilisateurs" checked >
@@ -74,9 +74,11 @@
             <c:when test = "${message == 'allUtilisateurs'}">
                 <%@include file="jspf/listeUtilisateurs.jspf" %>
             </c:when>
-            <c:when test = "${bdr != ''}">
+            
+            <c:when test="${not empty param.barreDeRecherche}">
                 <%@include file="jspf/resultatsDeRecherche.jspf" %>
             </c:when>
+            
         </c:choose>
     </body>
 </html>

@@ -25,7 +25,9 @@ public class UtilisateurImpDao implements UtilisateurDao {
     private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL = "select * from utilisateurs where email=?";
     private static final String SQL_SELECT_UTILISATEUR_PAR_EMAIL_MOTDEPASSE = "select * from planner.utilisateurs where email = ? and password = ?";
      
-    private static final String SQL_UPDATE = "update utilisateurs set email =?, telephone?, password = ?  where id = ?";
+    private static final String SQL_SELECT_UTILISATEUR_PAR_RECHERCHE= "select * from planner.utilisateurs where nom=? or prenom=?";
+    
+    private static final String SQL_UPDATE = "update utilisateurs set nom =?, prenom=?, email =?, telephone=?, password = ?  where id = ?";
    
     private static final String SQL_DELETE = "delete from utilisateurs where id = ?";
     
@@ -63,6 +65,41 @@ public class UtilisateurImpDao implements UtilisateurDao {
         return listeUtilisateur;
     }
 
+    @Override
+    public List<Utilisateur> findSearch(String nom) {
+        List<Utilisateur> listeUtilisateur = null;
+        try {
+
+            // Initilise la requete préparé de la basé sur la connexion
+            // la requete SQL passé en argument pour construire l'objet PreparedStatement
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEUR_PAR_RECHERCHE);
+            
+            ps.setString(1, nom);
+            ps.setString(2, nom); 
+            // on execute la requete  et on recupere les resultats dans la requete
+            ResultSet result = ps.executeQuery();
+
+            //initilisation de la listeUtilisateur
+            listeUtilisateur = new ArrayList();
+            while (result.next()) {
+                Utilisateur utilisateur = new Utilisateur();
+                utilisateur.setId(result.getInt("id"));
+                utilisateur.setNom(result.getString("nom"));
+                utilisateur.setPrenom(result.getString("prenom"));
+                utilisateur.setEmail(result.getString("email"));
+                utilisateur.setPassword(result.getString("password"));
+                utilisateur.setBio(result.getString("bio"));
+                utilisateur.setPhotoProfil(result.getString("photo"));
+                listeUtilisateur.add(utilisateur);
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeUtilisateur;
+    }
+    
     @Override
     public Utilisateur findById(int id) {
         Utilisateur utilisateur = null;
@@ -108,7 +145,7 @@ public class UtilisateurImpDao implements UtilisateurDao {
             PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_UTILISATEUR_PAR_NOM);
             // on initialise la propriete nom du l'ulisateur avec sa premiere valeur
             ps.setString(1, nom);
-
+            
             // on execute la requete  et on recupere les resultats dans la requete
             ResultSet result = ps.executeQuery();
 
@@ -122,14 +159,12 @@ public class UtilisateurImpDao implements UtilisateurDao {
                 utilisateur.setPassword(result.getString("password"));
                 utilisateur.setBio(result.getString("bio"));
                 utilisateur.setPhotoProfil(result.getString("photo"));
-
             }
             ConnexionBD.closeConnection();
 
         } catch (SQLException ex) {
             Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return utilisateur;
     }
 
@@ -283,13 +318,13 @@ public class UtilisateurImpDao implements UtilisateurDao {
         try {
 
             ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE);
-            ps.setString(1, utilisateur.getEmail());
-            ps.setString(2, utilisateur.getTelephone());
-            ps.setString(3, utilisateur.getPassword());
-
+            ps.setString(1, utilisateur.getNom());
+            ps.setString(2, utilisateur.getPrenom());
+            ps.setString(3, utilisateur.getEmail());
+            ps.setString(4, utilisateur.getTelephone());
+            ps.setString(5, utilisateur.getPassword());
+            ps.setInt(6, utilisateur.getIdUser());
             
-
-
             nbLigne = ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -303,6 +338,5 @@ public class UtilisateurImpDao implements UtilisateurDao {
         }
         ConnexionBD.closeConnection();
         return retour;
-    }
-    
+    }    
 }

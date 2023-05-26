@@ -38,6 +38,11 @@ public class EvenementService {
         return evenement;
     }
     
+    public List<Evenement> chercherEvenementParRequete(String nom){
+        listeEvenements = dao.eventSearch(nom);
+        return listeEvenements; 
+    }
+    
     public List<Evenement> chercherEvenementParHeureDebut(String heureD){
         listeEvenements = dao.findByHeureDebut(heureD);
         return listeEvenements;
@@ -68,7 +73,7 @@ public class EvenementService {
     }
     
     public boolean modifierUnEvenement(Evenement evenement){
-           if(dao.create(evenement)){
+           if(dao.update(evenement)){
             retour = true;
           }
     return retour;

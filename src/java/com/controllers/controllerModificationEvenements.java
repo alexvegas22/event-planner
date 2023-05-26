@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author djemaoune aimen
  */
-public class controllerModificationEvenement extends HttpServlet {
+public class controllerModificationEvenements extends HttpServlet {
 
     private List<Evenement> listeEvenements;
     EvenementService eventService = new EvenementService();
@@ -27,7 +27,7 @@ public class controllerModificationEvenement extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         String id = request.getParameter("id");
-        
+        String nom = request.getParameter("nom");
         String idUser = request.getParameter("idUser");
         String lieu = request.getParameter("lieu");
         String debut = request.getParameter("debut");
@@ -35,12 +35,9 @@ public class controllerModificationEvenement extends HttpServlet {
         String fin = request.getParameter("fin");
 
         int idEvent = Integer.parseInt(id);
-        int userId = Integer.parseInt(idUser);
+        
         evenement = eventService.chercherEvenementParID(idEvent);
-        
-        
-
-        evenement.setIdUserEvent(userId);
+        evenement.setNomEvent(nom);
         evenement.setLieux(lieu);
         evenement.setHeureDebut(debut);
         evenement.setHeureFin(fin);
@@ -52,7 +49,7 @@ public class controllerModificationEvenement extends HttpServlet {
             listeEvenements = eventService.afficherLesEvenement();
             request.setAttribute("message", message);
             request.setAttribute("listeEvenements", listeEvenements);
-            request.getRequestDispatcher("evenement.jsp").forward(request, response);
+            request.getRequestDispatcher("administration.jsp").forward(request, response);
         }
         
     }

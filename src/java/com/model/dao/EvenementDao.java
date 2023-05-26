@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface EvenementDao {
     List<Evenement> findAll();
+    List<Evenement> eventSearch(String nom);
     Evenement findById(int id);
     List<Evenement> findByIdUser(int id);
     Evenement findByName(String nom);

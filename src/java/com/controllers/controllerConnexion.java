@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 
@@ -22,7 +23,8 @@ public class controllerConnexion extends HttpServlet {
     Utilisateur utilisateur = null;
     UtilisateurService service = new UtilisateurService();
 
-    List<Evenement> listeEvenementUser;
+    List<Evenement> mesEvenements;
+    List<Evenement> listeEvenements;
     Evenement evenement = null;
     EvenementService eventService = new EvenementService();
 
@@ -31,7 +33,7 @@ public class controllerConnexion extends HttpServlet {
     @Override
     public void init() throws ServletException {
         listeUtilisateurs = service.afficherLesUtilisateurs();
-
+        listeEvenements = eventService.afficherLesEvenement();
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -44,27 +46,28 @@ public class controllerConnexion extends HttpServlet {
         String password = request.getParameter("psw");
         utilisateur = service.verifierEmailMotDePasse(email, password);
         String sauvegarde = request.getParameter("sauvegarde");
+        
         if (utilisateur != null) {
-            listeEvenementUser =eventService.chercherEvenementParUserID(utilisateur.getIdUser());
-            
-            request.setAttribute("userId", utilisateur.getIdUser());
+            mesEvenements =eventService.chercherEvenementParUserID(utilisateur.getIdUser());
             
             connexion = true;
-            HttpSession session = request.getSession(true);
+            HttpSession session = request.getSession();
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
             
             ((HttpSession) session).setAttribute("userId", utilisateur.getIdUser());
             session.setAttribute("prenom", utilisateur.getPrenom());
+            ((HttpSession) session).setAttribute("mesEvenements", mesEvenements);
 
-            request.setAttribute("listeEvenement", listeEvenementUser);
-
-            
+            request.setAttribute("listeEvenement", listeEvenements);
             request.setAttribute("utilisateur", utilisateur);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+            request.setAttribute("userRecherche", null);
+            request.setAttribute("eventRecherche", null);
+            
             
             url = "home.jsp";
             if (email.equals("admin@admin.com")) {
-
+                
                 url = "administration.jsp";
             }
         }

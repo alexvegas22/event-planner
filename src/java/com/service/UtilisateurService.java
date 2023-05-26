@@ -22,6 +22,12 @@ public class UtilisateurService {
         return listeUtilisateurs;
     }
     
+    public List<Utilisateur> afficherRechercheUtilisateurs(String requete) {
+        System.out.println("AFFICHER RECHERCHE UTILISATEUR");
+        listeUtilisateurs = dao.findSearch(requete);
+        return listeUtilisateurs;
+    }
+    
     public Utilisateur chercherUtilisateurParID(int id) {
        utilisateur = dao.findById(id);
         return utilisateur;

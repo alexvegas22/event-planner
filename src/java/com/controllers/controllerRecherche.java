@@ -5,9 +5,13 @@
 package com.controllers;
 
 import com.model.dao.UtilisateurImpDao;
+import com.model.entites.Evenement;
 import com.model.entites.Utilisateur;
+import com.service.EvenementService;
+import com.service.UtilisateurService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -30,17 +34,23 @@ public class controllerRecherche extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         UtilisateurImpDao daoUser = new UtilisateurImpDao(); 
-        //Initialisation user
-        Utilisateur userRecherche = null; 
-        if (request.getParameter("barreDeRecherche")!=null){
-            userRecherche = daoUser.findByName(request.getParameter("barreDeRecherche")); 
-            request.setAttribute("userRecherche", userRecherche);
-        }
         
+        UtilisateurService userService = new UtilisateurService();
+        EvenementService eventService = new EvenementService();
+        
+        //Initialisation user
+        List<Utilisateur> userRecherche = userService.afficherLesUtilisateurs();
+        List<Evenement> eventRecherche = eventService.afficherLesEvenement() ;
+        
+        String requete = request.getParameter("barreDeRecherche");
+        
+        eventRecherche = (List<Evenement>) eventService.chercherEvenementParRequete(requete);
+        userRecherche = userService.afficherRechercheUtilisateurs(requete);
+        request.setAttribute("eventRecherche", eventRecherche);
+        request.setAttribute("userRecherche", userRecherche);
         request.getRequestDispatcher("administration.jsp").include(request, response);
     }
 

@@ -24,6 +24,7 @@ public class EvenementDaoImpl implements EvenementDao {
     private static final String SQL_SELECT_EVENEMENTS_PAR_HEURE_DEBUT = "select * from evenements where debut=?";
     private static final String SQL_SELECT_EVENEMENTS_PAR_HEURE_FIN = "select * from planner.evenements where fin = ?";
     private static final String SQL_SELECT_EVENEMENTS_PAR_LIEUX = "select * from planner.evenements where lieux = ?";
+    private static final String SQL_SELECT_EVENEMENTS_PAR_RECHERCHE = "select * from planner.evenements where nom=? or lieux=?";
      
     private static final String SQL_UPDATE = "update evenements set idUser =?, nom=?, lieux= ?, debut= ?, fin = ?, description=? where id = ?";
    
@@ -62,6 +63,39 @@ public class EvenementDaoImpl implements EvenementDao {
         return listeEvenement;
     }
 
+    @Override
+    public List<Evenement> eventSearch(String nom) {
+        List<Evenement> listeEvenement = null;
+        try {
+
+            
+            PreparedStatement ps = ConnexionBD.getConnection().prepareStatement(SQL_SELECT_EVENEMENTS_PAR_RECHERCHE);
+            
+            ps.setString(1, nom);
+            ps.setString(2, nom);
+            ResultSet result = ps.executeQuery();
+
+          
+            listeEvenement = new ArrayList();
+            while (result.next()) {
+                Evenement evenement = new Evenement();
+                evenement.setIdEvent(result.getInt("id"));
+                evenement.setIdUserEvent(result.getInt("idUser"));
+                evenement.setNomEvent(result.getString("nom"));
+                evenement.setLieux(result.getString("lieux"));
+                evenement.setHeureDebut(result.getString("debut"));
+                evenement.setHeureFin(result.getString("fin"));
+                evenement.setDescription(result.getString("description"));
+                listeEvenement.add(evenement);
+            }
+            ConnexionBD.closeConnection();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UtilisateurImpDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeEvenement;
+    }
+    
     @Override
     public Evenement findById(int id) {
         Evenement evenement = null;
@@ -335,20 +369,15 @@ public class EvenementDaoImpl implements EvenementDao {
         int nbLigne = 0;
         PreparedStatement ps;
 
-        try {
-
+        try {         
             ps = ConnexionBD.getConnection().prepareStatement(SQL_UPDATE);
-            ps.setString(1, event.getNomEvent());
-
-            ps.setString(2, event.getLieux());
-
-            ps.setInt(3, event.getIdEvent());
-            
+            ps.setInt(1, event.getIdUserEvent());
+            ps.setString(2, event.getNomEvent());
+            ps.setString(3, event.getLieux());
             ps.setString( 4, event.getHeureDebut());
-            
             ps.setString(5, event.getHeureFin());
-            
             ps.setString(6, event.getDescription());
+            ps.setInt(7,event.getIdEvent());
 
             nbLigne = ps.executeUpdate();
 
@@ -364,6 +393,8 @@ public class EvenementDaoImpl implements EvenementDao {
         ConnexionBD.closeConnection();
         return retour;
     }
+
+    
 
     
     

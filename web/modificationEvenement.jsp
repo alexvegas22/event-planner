@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  
  
-     Evenement  evenement = (Evenement)request.getAttribute("utilisateur");
+     Evenement  evenement = (Evenement)request.getAttribute("evenement");
 %>
 <!DOCTYPE html>
 <html>
@@ -24,16 +24,25 @@
                 <div>
                   <div>
                 <h2 align="center">Modification des informations</h2>
-                <p align="center"> De le l'évenement :<strong><%=(evenement != null ? evenement.getNomEvent() : "")%> </strong>  </p>
 
             </div>
                 <form id="signupForm" method="post" 
-                      action="modificationEvenementController">
+                      action="controllerModificationEvenements">
                     <div>
                      
                         <div>
                             <input type="hidden"  id="id"
-                                   name="id"  hidden=""value="<%=(evenement != null ? evenement.getIdEvent() : "")%>" />
+                                   name="id"  value="<%= evenement.getIdEvent()%>" />
+                        </div>
+                        <div>
+                            <input type="hidden"  id="idUser" name="idUser"  value="5" />
+                        </div>
+                    </div>
+                        <div>
+                        <label  for="lieu">Nom de l'évènement :</label>
+                        <div >
+                            <input type="text"  id="nom"
+                                   name="nom" value="<%=(evenement != null ? evenement.getNomEvent() : "")%>" />
                         </div>
                     </div>
                     <div>
@@ -45,29 +54,34 @@
                     </div>
                   
                     <div >
-                        <label  for="time">Début de l'évènement :</label>
+                        <label  for="debut">Début de l'évènement :</label>
                         <div class="col-sm-5">
                           
-                             <input type="time"  id="debut"
-                                   name="debut" value="<%=(evenement != null ? evenement.getHeureDebut(): "")%>" />
+                             <input type="datetime-local" value="2000-07-01T12:00" id="debut" name="debut" />
                         </div>
                     </div>
                         
                     <div >
-                        <label  for="time">Fin de l'évènement :</label>
+                        <label  for="fin">Fin de l'évènement :</label>
                         <div class="col-sm-5">
                           
-                             <input type="time"  id="fin"
-                                   name="debut" value="<%=(evenement != null ? evenement.getHeureDebut(): "")%>" />
+                             <input type="datetime-local" value="2000-07-01T12:00" id="fin" name="fin" />
+                        </div>
+                    </div>
+                        <div >
+                        <label  for="time">Description :</label>
+                        <div class="col-sm-5">
+                          
+                             <input type="text"  id="description"
+                                   name="description" />
                         </div>
                     </div>
 
                     <div >
                         <div >
-
-                             
-                                  <input type="submit"   
-                                   value="ModificationEvenement"  id="submit"  />
+                            <button type="submit" value="ModificationEvenement"  id="submit"  >
+                                Modifier l'événement
+                            </button>
 
                         </div>
                     </div>

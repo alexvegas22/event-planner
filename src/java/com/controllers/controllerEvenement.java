@@ -33,6 +33,7 @@ public class controllerEvenement extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        HttpSession session = request.getSession(true);
         String nomEvent = request.getParameter("nom");
         String lieu = request.getParameter("lieu");
         
@@ -51,11 +52,13 @@ public class controllerEvenement extends HttpServlet {
             String message = "L'évènement " + nom + "" + " a été ajouté avec success";
             listeEvenements = eventService.afficherLesEvenement();
             request.setAttribute("message", message);
-            request.setAttribute("listeEvenements", listeEvenements);
-            request.getRequestDispatcher("evenement.jsp").forward(request, response);
+            session.setAttribute("mesEvenements", listeEvenements);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
             
             
         } 
+        listeEvenements = eventService.afficherLesEvenement();
+        request.getRequestDispatcher("evenement.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

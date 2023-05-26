@@ -72,6 +72,10 @@
                     </div>
                 </form>
             </div>
+                        
         </div>
+                        <form action="home.jsp">
+                        <button class="boutton" >Retour</button>
+                        </form>
     </body>
 </html>

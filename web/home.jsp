@@ -66,5 +66,8 @@
                     </article>
             </div>            
         </div>
+            <form action="controllerDeconnexion" method="post">
+                    <button style="align-content: end;" class="nav-item"><h1>Déconnexion</h1></button>
+                </form>
     </body>
 </html>

@@ -43,6 +43,14 @@
         <servlet-name>controllerRechercheAdmin</servlet-name>
         <servlet-class>com.controllers.controllerRechercheAdmin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controllerAdministration</servlet-name>
+        <servlet-class>com.controllers.controllerAdministration</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>controllerModificationEvenements</servlet-name>
+        <servlet-class>com.controllers.controllerModificationEvenements</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerInscription</servlet-name>
         <url-pattern>/controllerInscription</url-pattern>
@@ -82,6 +90,14 @@
     <servlet-mapping>
         <servlet-name>controllerRechercheAdmin</servlet-name>
         <url-pattern>/controllerRechercheAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerAdministration</servlet-name>
+        <url-pattern>/controllerAdministration</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerModificationEvenements</servlet-name>
+        <url-pattern>/controllerModificationEvenements</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

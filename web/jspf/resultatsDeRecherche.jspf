@@ -1,3 +1,4 @@
+<%@page import="com.model.entites.Evenement"%>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -5,90 +6,108 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     List<Utilisateur> utilisateurListe = (List<Utilisateur>) request.getAttribute("userRecherche");
-    Utilisateur user = (Utilisateur)request.getAttribute("utilisateur");
+    List<Evenement> evenementListe = (List<Evenement>) request.getAttribute("eventRecherche");
 %>
 
 <div class="home-section">
     <h1>Résultats pour <c:out value='${param.recherche}'/> : '<c:out value='${param.barreDeRecherche}'/>' </h1>
-        
+
 </div>
+  
+
+<table style=" margin-left: auto; margin-right:auto"  >   
+    <% if (request.getParameter("recherche").equals("utilisateurs")) { %>
 <tr>
-<table style="width:100%; margin-left: auto; margin-right:auto" >    
-    <th>Id</th>
+    <th>Id User</th>
     <th>Nom</th>
     <th>Prenom</th>
     <th>Email</th>
-    <th>Telephone</th>
     <th>Bio</th>
-    <th>Mot de passe</th>
-    <th>Photo De Profil</th>
+    <th>Telephone</th>
+    <<th>Photo de profil</th>
+    <th>Suppression</th>
+    <th>Modification</th>
+</tr>
+
+    <%if (utilisateurListe != null) {
+            for (Utilisateur user : utilisateurListe) {%>
+    <tr>
+        <td> <%=user.getIdUser()%></td>
+        <td> <%=user.getNom()%></td>
+        <td> <%=user.getPrenom()%> </td>
+        <td> <%=user.getEmail()%> </td>
+        <td> <%=user.getBio()%> </td>
+        <td> <%=user.getTelephone()%> </td>
+        <td> <<img src="<%=user.getPhotoProfil()%>" alt="Photo indisponible"/> </td>
+
+
+        <td> <form action="controllerAdministration" method="get">
+                <center>
+                    <input type="hidden" name="operation" value="supprimerUser">
+                    <Button type="submit"  name="idUser" value="<%=user.getIdUser()%>" >Supprimer</button> 
+                </center>
+            </form> 
+        </td>
+        <td> <form action="controllerAdministration" method="get">
+                <center>
+                    <input type="hidden" name="operation" value="modifierUser">
+                    <Button type="submit" name="idUser" value="<%=user.getIdUser()%>" >Modifier</button> 
+
+                </center>
+
+            </form>  </td>
+    </tr>
+    <% }
+        }
+    %>
+
+    <% }%>
+    
+<% if (request.getParameter("recherche").equals("evenements")) { %>
+<tr>
+    <th>Id Event </th>
+    <th>Id User</th>
+    <th>Nom</th>
+    <th>Lieu</th>
+    <th>Heure Début</th>
+    <th>Heure Fin</th>
+    <th>Description</th>
 
     <th>Suppression</th>
     <th>Modification</th>
 </tr>
 
-
-<%if (utilisateurListe != null) {
-    for(Utilisateur utilisateurTrouvee : utilisateurListe){%>
-<tr>
-    <td> <%=utilisateurTrouvee.getIdUser()%> </td>
-
-    <td> <%=utilisateurTrouvee.getNom()%> </td>
-    <td> <%=utilisateurTrouvee.getPrenom()%> </td>
-    <td> <%=utilisateurTrouvee.getEmail()%> </td>
-    <td> <%=utilisateurTrouvee.getTelephone()%> </td>
-    <td> <%=utilisateurTrouvee.getBio()%> </td>
-    <td> <%=utilisateurTrouvee.getPassword()%> </td>
+    <%if (evenementListe != null) {
+            for (Evenement evenement : evenementListe) {%>
+    <tr>
+        <td> <%=evenement.getIdEvent()%></td>
+        <td> <%=evenement.getIdUserEvent()%></td>
+        <td> <%=evenement.getNomEvent()%> </td>
+        <td> <%=evenement.getLieux()%> </td>
+        <td> <%=evenement.getHeureDebut()%> </td>
+        <td> <%=evenement.getHeureFin()%> </td>
+        <td> <%=evenement.getDescription()%> </td>
 
 
-    <td>
-        <img alt="etu image" src="<%=utilisateurTrouvee.getPhotoProfil()%>"/> 
-    </td>
+        <td> <form action="controllerAdministration" method="get">
+                <center>
+                    <input type="hidden" name="operation" value="supprimerEvent">
+                    <Button type="submit" name="idEvent" value="<%=evenement.getIdEvent()%>" >Supprimer</button> 
+                </center>
+            </form> 
+        </td>
+        <td> <form action="controllerAdministration" method="get">
+                <center>
+                    <input type="hidden" name="operation" value="modifierEvent">
+                    <Button type="submit" name="idEvent" value="<%=evenement.getIdEvent()%>" >Modifier</button> 
 
-    <td> <form action="inscription.jsp" method="post">
-            <center>
-                <input type="submit"  value="Supprimer" /> 
+                </center>
 
-            </center>
+            </form>  </td>
+    </tr>
+    <% }
+        }
+    %>
 
-        </form> </td>
-    <td> <form action="modificationUtilisateur.jsp" method="post">
-            <center>
-                <input type="submit"  value="Modifier" /> 
-
-            </center>
-
-        </form>  </td>
-</tr>
-<% } } %>
-
-<tr>
-    <td> <%=user.getIdUser()%> </td>
-
-    <td> <%=user.getNom()%> </td>
-    <td> <%=user.getPrenom()%> </td>
-    <td> <%=user.getEmail()%> </td>
-    <td> <%=user.getTelephone()%> </td>
-    <td> <%=user.getBio()%> </td>
-    <td> <%=user.getPassword()%> </td>
-
-
-    <td>
-        <img alt="etu image" src="<%=user.getPhotoProfil()%>"/> 
-    </td>
-
-    <td> <form action="inscription.jsp" method="post">
-            <center>
-                <input type="submit"  value="Supprimer" /> 
-
-            </center>
-
-        </form> </td>
-    <td> <form action="modificationUtilisateur.jsp" method="post">
-            <center>
-                <input type="submit"  value="Modifier" /> 
-
-            </center>
-
-        </form>  </td>
-</tr>
+    <% }%>
+</table>

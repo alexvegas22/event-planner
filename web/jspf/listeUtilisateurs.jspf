@@ -5,7 +5,6 @@
 <%@page import="com.model.entites.Utilisateur"%>
 <%  
     List<Utilisateur> listeUtilisateurs = (List<Utilisateur>)request.getAttribute("listeUtilisateurs");
-     Utilisateur  utilisateur = (Utilisateur)request.getAttribute("utilisateur");
 %>
         <br>
         <h1>Voici tous les utilisateurs</h1>

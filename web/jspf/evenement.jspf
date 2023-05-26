@@ -1,8 +1,12 @@
 <%@page import="java.util.List"%>
 <%@page import="com.model.entites.Evenement"%>
+
 <%
-    List<Evenement> listEvent = (List<Evenement>)request.getAttribute("listeEvenement");
+    List<Evenement> listEvent = (List<Evenement>)session.getAttribute("mesEvenements");
 %>
+
+<%= session.getAttribute("userId") %>
+
 <div class="event-section box">  
     <header>
         <div class="date">Vos evenements</div>         
