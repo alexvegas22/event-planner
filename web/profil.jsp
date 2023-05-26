@@ -32,6 +32,7 @@
                 <h3 align="center">Modifier votre profil</h3>
                 <form id="signupForm" method="post" action="controllerProfil">
                     <div>
+                        <input type='hidden' id='id' name='id' value='<%=session.getAttribute("id")%>'/>
                         <label  for="fname">Votre nom :</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" id="nom" name="nom" placeholder="<%=session.getAttribute("nom")%>" />

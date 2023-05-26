@@ -51,6 +51,10 @@
         <servlet-name>controllerModificationEvenements</servlet-name>
         <servlet-class>com.controllers.controllerModificationEvenements</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controllerProfil</servlet-name>
+        <servlet-class>com.controllers.controllerProfil</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controllerInscription</servlet-name>
         <url-pattern>/controllerInscription</url-pattern>
@@ -98,6 +102,10 @@
     <servlet-mapping>
         <servlet-name>controllerModificationEvenements</servlet-name>
         <url-pattern>/controllerModificationEvenements</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controllerProfil</servlet-name>
+        <url-pattern>/controllerProfil</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

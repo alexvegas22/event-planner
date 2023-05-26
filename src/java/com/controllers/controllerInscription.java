@@ -43,13 +43,15 @@ public class controllerInscription extends HttpServlet {
         if (retour) {
             String message = "L'utilisateur" + nom + "" + " a été ajouté avec success";
             listeUtilisateurs = utiliServ.afficherLesUtilisateurs();
+            
             request.setAttribute("message", message);
             request.setAttribute("listeUtilisateurs", listeUtilisateurs);
             HttpSession session = request.getSession(true);
             ((HttpSession) session).setAttribute("nom", utilisateur.getNom());
             session.setAttribute("prenom", utilisateur.getPrenom());
+            session.setAttribute("id", utilisateur.getIdUser());
             request.setAttribute("utilisateur", utilisateur);
-            request.setAttribute("listeUtilisateurs", listeUtilisateurs);
+            session.setAttribute("listeUtilisateurs", listeUtilisateurs);
             request.getRequestDispatcher("home.jsp").forward(request, response);
 
         }

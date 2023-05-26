@@ -35,9 +35,9 @@ public class controllerProfil extends HttpServlet {
             String photo = request.getParameter("photo");
             String id = request.getParameter("id");
             String password = request.getParameter("psw");
-            //int userId = Integer.parseInt(id);
+            int userId = 4;
 
-            //utilisateur = utilisateurService.chercherUtilisateurParID(userId);
+            utilisateur = utilisateurService.chercherUtilisateurParID(userId);
             utilisateur.setNom(nom);
             utilisateur.setPrenom(prenom);
             utilisateur.setEmail(email);
@@ -52,10 +52,10 @@ public class controllerProfil extends HttpServlet {
                 listeUtilisateurs = utilisateurService.afficherLesUtilisateurs();
                 request.setAttribute("message", message);
                 request.setAttribute("listeUtilisateurs", listeUtilisateurs);
-                //request.getRequestDispatcher("administration.jsp").forward(request, response);
+                
                 request.getRequestDispatcher("home.jsp").forward(request, response);
             }
-
+            request.getRequestDispatcher("home.jsp").forward(request, response);
         }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
