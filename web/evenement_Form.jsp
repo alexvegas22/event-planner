@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css" type="text/css"/>
         <link rel="stylesheet" href="css/login.css" type="text/css"/>
+        <script src="js/validationFormulaire.js"></script>
         
         
     </head>
@@ -46,7 +47,6 @@
         </div> <br>
         
       </form>
-        <script src="js/formValidation.js"></script>
     </body>
 </html>
 
